@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.homepage.dao.HomePageDao">
+    
+	<sql id="homePageColumns">
+		a.id AS "id",
+		a.user_total_number AS "userTotalNumber",
+		a.today_newly_added_user AS "todayNewlyAddedUser",
+		a.today_active_user AS "todayActiveUser",
+		a.current_online_user AS "currentOnlineUser",
+		a.week_newly_added_user AS "weekNewlyAddedUser",
+		a.month_newly_added_user AS "monthNewlyAddedUser",
+		a.intradiscal_total_fraction AS "intradiscalTotalFraction",
+		a.today_recharge AS "todayRecharge",
+		a.today_withdraw_cash AS "todayWithdrawCash",
+		a.today_total_win_loss AS "todayTotalWinLoss",
+		a.today_betsl_statement AS "todayBetslStatement",
+		a.today_give_present AS "todayGivePresent"
+	</sql>
+	
+	<sql id="homePageJoins">
+	</sql>
+    
+	<select id="get" resultType="HomePage">
+		SELECT 
+			<include refid="homePageColumns"/>
+		FROM home_page a
+		<include refid="homePageJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="HomePage">
+		SELECT 
+			<include refid="homePageColumns"/>
+		FROM home_page a
+		<include refid="homePageJoins"/>
+		<where>
+			
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="userTotalNumber != null and userTotalNumber != ''">
+				AND a.user_total_number = #{userTotalNumber}
+			</if>
+			<if test="todayNewlyAddedUser != null and todayNewlyAddedUser != ''">
+				AND a.today_newly_added_user = #{todayNewlyAddedUser}
+			</if>
+			<if test="todayActiveUser != null and todayActiveUser != ''">
+				AND a.today_active_user = #{todayActiveUser}
+			</if>
+			<if test="currentOnlineUser != null and currentOnlineUser != ''">
+				AND a.current_online_user = #{currentOnlineUser}
+			</if>
+			<if test="weekNewlyAddedUser != null and weekNewlyAddedUser != ''">
+				AND a.week_newly_added_user = #{weekNewlyAddedUser}
+			</if>
+			<if test="monthNewlyAddedUser != null and monthNewlyAddedUser != ''">
+				AND a.month_newly_added_user = #{monthNewlyAddedUser}
+			</if>
+			<if test="intradiscalTotalFraction != null and intradiscalTotalFraction != ''">
+				AND a.intradiscal_total_fraction = #{intradiscalTotalFraction}
+			</if>
+			<if test="todayRecharge != null and todayRecharge != ''">
+				AND a.today_recharge = #{todayRecharge}
+			</if>
+			<if test="todayWithdrawCash != null and todayWithdrawCash != ''">
+				AND a.today_withdraw_cash = #{todayWithdrawCash}
+			</if>
+			<if test="todayTotalWinLoss != null and todayTotalWinLoss != ''">
+				AND a.today_total_win_loss = #{todayTotalWinLoss}
+			</if>
+			<if test="todayBetslStatement != null and todayBetslStatement != ''">
+				AND a.today_betsl_statement = #{todayBetslStatement}
+			</if>
+			<if test="todayGivePresent != null and todayGivePresent != ''">
+				AND a.today_give_present = #{todayGivePresent}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="HomePage">
+		SELECT 
+			<include refid="homePageColumns"/>
+		FROM home_page a
+		<include refid="homePageJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO home_page(
+			id,
+			user_total_number,
+			today_newly_added_user,
+			today_active_user,
+			current_online_user,
+			week_newly_added_user,
+			month_newly_added_user,
+			intradiscal_total_fraction,
+			today_recharge,
+			today_withdraw_cash,
+			today_total_win_loss,
+			today_betsl_statement,
+			today_give_present
+		) VALUES (
+			#{id},
+			#{userTotalNumber},
+			#{todayNewlyAddedUser},
+			#{todayActiveUser},
+			#{currentOnlineUser},
+			#{weekNewlyAddedUser},
+			#{monthNewlyAddedUser},
+			#{intradiscalTotalFraction},
+			#{todayRecharge},
+			#{todayWithdrawCash},
+			#{todayTotalWinLoss},
+			#{todayBetslStatement},
+			#{todayGivePresent}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE home_page SET 	
+			user_total_number = #{userTotalNumber},
+			today_newly_added_user = #{todayNewlyAddedUser},
+			today_active_user = #{todayActiveUser},
+			current_online_user = #{currentOnlineUser},
+			week_newly_added_user = #{weekNewlyAddedUser},
+			month_newly_added_user = #{monthNewlyAddedUser},
+			intradiscal_total_fraction = #{intradiscalTotalFraction},
+			today_recharge = #{todayRecharge},
+			today_withdraw_cash = #{todayWithdrawCash},
+			today_total_win_loss = #{todayTotalWinLoss},
+			today_betsl_statement = #{todayBetslStatement},
+			today_give_present = #{todayGivePresent}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM home_page
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.entertainedset.dao.EntertainedSetDao">
+    
+	<sql id="entertainedSetColumns">
+		a.id AS "id",
+		a.roomnumber AS "roomnumber",
+		a.gameroom_id AS "gameroomId",
+		a.countdown AS "countdown",
+		a.prompt_style AS "promptStyle",
+		a.prompt AS "prompt"
+	</sql>
+	
+	<sql id="entertainedSetJoins">
+	</sql>
+    
+	<select id="get" resultType="EntertainedSet">
+		SELECT 
+			<include refid="entertainedSetColumns"/>
+		FROM entertained_set a
+		<include refid="entertainedSetJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="EntertainedSet">
+		SELECT 
+			<include refid="entertainedSetColumns"/>
+		FROM entertained_set a
+		<include refid="entertainedSetJoins"/>
+		<where>
+			
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="roomnumber != null and roomnumber != ''">
+				AND a.roomnumber = #{roomnumber}
+			</if>
+			<if test="gameroomId != null and gameroomId != ''">
+				AND a.gameroom_id = #{gameroomId}
+			</if>
+			<if test="countdown != null and countdown != ''">
+				AND a.countdown = #{countdown}
+			</if>
+			<if test="promptStyle != null and promptStyle != ''">
+				AND a.prompt_style = #{promptStyle}
+			</if>
+			<if test="prompt != null and prompt != ''">
+				AND a.prompt = #{prompt}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="EntertainedSet">
+		SELECT 
+			<include refid="entertainedSetColumns"/>
+		FROM entertained_set a
+		<include refid="entertainedSetJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO entertained_set(
+			id,
+			roomnumber,
+			gameroom_id,
+			countdown,
+			prompt_style,
+			prompt
+		) VALUES (
+			#{id},
+			#{roomnumber},
+			#{gameroomId},
+			#{countdown},
+			#{promptStyle},
+			#{prompt}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE entertained_set SET 	
+			roomnumber = #{roomnumber},
+			gameroom_id = #{gameroomId},
+			countdown = #{countdown},
+			prompt_style = #{promptStyle},
+			prompt = #{prompt}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM entertained_set
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

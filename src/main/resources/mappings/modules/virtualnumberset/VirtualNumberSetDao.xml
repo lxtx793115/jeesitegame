@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.virtualnumberset.dao.VirtualNumberSetDao">
+    
+	<sql id="virtualNumberSetColumns">
+		a.id AS "id",
+		a.roomnumber AS "roomnumber",
+		a.gameroom_id AS "gameroomId",
+		a.begintime AS "begintime",
+		a.endtime AS "endtime",
+		a.virtual_number_max AS "virtualNumberMax",
+		a.virtual_number AS "virtualNumber"
+	</sql>
+	
+	<sql id="virtualNumberSetJoins">
+	</sql>
+    
+	<select id="get" resultType="VirtualNumberSet">
+		SELECT 
+			<include refid="virtualNumberSetColumns"/>
+		FROM virtual_number_set a
+		<include refid="virtualNumberSetJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="VirtualNumberSet">
+		SELECT 
+			<include refid="virtualNumberSetColumns"/>
+		FROM virtual_number_set a
+		<include refid="virtualNumberSetJoins"/>
+		<where>
+			
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="roomnumber != null and roomnumber != ''">
+				AND a.roomnumber = #{roomnumber}
+			</if>
+			<if test="gameroomId != null and gameroomId != ''">
+				AND a.gameroom_id = #{gameroomId}
+			</if>
+			<if test="begintime != null and begintime != ''">
+				AND a.begintime = #{begintime}
+			</if>
+			<if test="endtime != null and endtime != ''">
+				AND a.endtime = #{endtime}
+			</if>
+			<if test="virtualNumber != null and virtualNumber != ''">
+				AND a.virtual_number = #{virtualNumber}
+			</if>
+			<if test="virtualNumberMax != null and virtualNumberMax != ''">
+				AND a.virtual_number_max = #{virtualNumberMax}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="VirtualNumberSet">
+		SELECT 
+			<include refid="virtualNumberSetColumns"/>
+		FROM virtual_number_set a
+		<include refid="virtualNumberSetJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO virtual_number_set(
+			id,
+			roomnumber,
+			gameroom_id,
+			begintime,
+			endtime,
+			virtual_number,
+			virtual_number_max
+		) VALUES (
+			#{id},
+			#{roomnumber},
+			#{gameroomId},
+			#{begintime},
+			#{endtime},
+			#{virtualNumber},
+			#{virtualNumberMax}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE virtual_number_set SET 	
+			roomnumber = #{roomnumber},
+			gameroom_id = #{gameroomId},
+			begintime = #{begintime},
+			endtime = #{endtime},
+			virtual_number = #{virtualNumber},
+			virtual_number_max=#{virtualNumberMax}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM virtual_number_set
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

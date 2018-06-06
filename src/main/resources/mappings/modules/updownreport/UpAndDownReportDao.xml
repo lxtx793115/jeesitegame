@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.updownreport.dao.UpAndDownReportDao">
+    
+	<sql id="upAndDownReportColumns">
+		a.id AS "id",
+		a.gameuser_id AS "gameuserId",
+		a.reportnumber AS "reportnumber",
+		a.nickname AS "nickname",
+		a.photourl AS "photourl",
+		a.bank_account AS "bankAccount",
+		a.apply_type AS "applyType",
+		a.apply_type_context AS "applyTypeContext",
+		a.pay_type AS "payType",
+		a.apply_money_amount AS "applyMoneyAmount",
+		a.apply_time AS "applyTime",
+		a.operator_id AS "operatorId",
+		a.operator_username AS "operatorUsername",
+		a.operate_time AS "operateTime",
+		a.status AS "status",
+		a.status_context AS "statusContext"
+	</sql>
+	
+	<sql id="upAndDownReportJoins">
+	</sql>
+    
+	<select id="get" resultType="UpAndDownReport">
+		SELECT 
+			<include refid="upAndDownReportColumns"/>
+		FROM up_and_down_report a
+		<include refid="upAndDownReportJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findListtotal" resultType="UpAndDownReport">
+		SELECT 
+			count(*) as bankAccount,sum( a.apply_money_amount) as applyMoneyAmount 
+		FROM up_and_down_report a
+		<include refid="upAndDownReportJoins"/>
+		<where>
+			
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="gameuserId != null and gameuserId != ''">
+				AND a.gameuser_id = #{gameuserId}
+			</if>
+			<if test="reportnumber != null and reportnumber != ''">
+				AND a.reportnumber = #{reportnumber}
+			</if>
+			<if test="nickname != null and nickname != ''">
+				AND a.nickname = #{nickname}
+			</if>
+			<if test="photourl != null and photourl != ''">
+				AND a.photourl = #{photourl}
+			</if>
+			<if test="bankAccount != null and bankAccount != ''">
+				AND a.bank_account = #{bankAccount}
+			</if>
+			<if test="applyType != null and applyType != ''">
+				AND a.apply_type = #{applyType}
+			</if>
+			<if test="applyTypeContext != null and applyTypeContext != ''">
+				AND a.apply_type_context = #{applyTypeContext}
+			</if>
+			<if test="payType != null and payType != ''">
+				AND a.pay_type = #{payType}
+			</if>
+			<if test="applyMoneyAmount != null and applyMoneyAmount != ''">
+				AND a.apply_money_amount = #{applyMoneyAmount}
+			</if>
+			<if test="applyTime != null and applyTime != ''">
+				AND a.apply_time = #{applyTime}
+			</if>
+			<if test="operatorId != null and operatorId != ''">
+				AND a.operator_id = #{operatorId}
+			</if>
+			<if test="operatorUsername != null and operatorUsername != ''">
+				AND a.operator_username = #{operatorUsername}
+			</if>
+			<if test="operateTime != null and operateTime != ''">
+				AND a.operate_time = #{operateTime}
+			</if>
+			<if test="status != null and status != ''">
+				AND a.status = #{status}
+			</if>
+			<if test="statusContext != null and statusContext != ''">
+				AND a.status_context = #{statusContext}
+			</if>
+		</where>
+	</select>
+	
+	<select id="findList" resultType="UpAndDownReport">
+		SELECT 
+			<include refid="upAndDownReportColumns"/>
+		FROM up_and_down_report a
+		<include refid="upAndDownReportJoins"/>
+		<where>
+			
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="gameuserId != null and gameuserId != ''">
+				AND a.gameuser_id = #{gameuserId}
+			</if>
+			<if test="reportnumber != null and reportnumber != ''">
+				AND a.reportnumber = #{reportnumber}
+			</if>
+			<if test="nickname != null and nickname != ''">
+				AND a.nickname = #{nickname}
+			</if>
+			<if test="photourl != null and photourl != ''">
+				AND a.photourl = #{photourl}
+			</if>
+			<if test="bankAccount != null and bankAccount != ''">
+				AND a.bank_account = #{bankAccount}
+			</if>
+			<if test="applyType != null and applyType != ''">
+				AND a.apply_type = #{applyType}
+			</if>
+			<if test="applyTypeContext != null and applyTypeContext != ''">
+				AND a.apply_type_context = #{applyTypeContext}
+			</if>
+			<if test="payType != null and payType != ''">
+				AND a.pay_type = #{payType}
+			</if>
+			<if test="applyMoneyAmount != null and applyMoneyAmount != ''">
+				AND a.apply_money_amount = #{applyMoneyAmount}
+			</if>
+			<if test="applyTime != null and applyTime != ''">
+				AND a.apply_time = #{applyTime}
+			</if>
+			<if test="operatorId != null and operatorId != ''">
+				AND a.operator_id = #{operatorId}
+			</if>
+			<if test="operatorUsername != null and operatorUsername != ''">
+				AND a.operator_username = #{operatorUsername}
+			</if>
+			<if test="operateTime != null and operateTime != ''">
+				AND a.operate_time = #{operateTime}
+			</if>
+			<if test="status != null and status != ''">
+				AND a.status = #{status}
+			</if>
+			<if test="statusContext != null and statusContext != ''">
+				AND a.status_context = #{statusContext}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="UpAndDownReport">
+		SELECT 
+			<include refid="upAndDownReportColumns"/>
+		FROM up_and_down_report a
+		<include refid="upAndDownReportJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO up_and_down_report(
+			id,
+			gameuser_id,
+			reportnumber,
+			nickname,
+			photourl,
+			bank_account,
+			apply_type,
+			apply_type_context,
+			pay_type,
+			apply_money_amount,
+			apply_time,
+			operator_id,
+			operator_username,
+			operate_time,
+			status,
+			status_context
+		) VALUES (
+			#{id},
+			#{gameuserId},
+			#{reportnumber},
+			#{nickname},
+			#{photourl},
+			#{bankAccount},
+			#{applyType},
+			#{applyTypeContext},
+			#{payType},
+			#{applyMoneyAmount},
+			#{applyTime},
+			#{operatorId},
+			#{operatorUsername},
+			#{operateTime},
+			#{status},
+			#{statusContext}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE up_and_down_report SET 	
+			gameuser_id = #{gameuserId},
+			reportnumber = #{reportnumber},
+			nickname = #{nickname},
+			photourl = #{photourl},
+			bank_account = #{bankAccount},
+			apply_type = #{applyType},
+			apply_type_context = #{applyTypeContext},
+			pay_type = #{payType},
+			apply_money_amount = #{applyMoneyAmount},
+			apply_time = #{applyTime},
+			operator_id = #{operatorId},
+			operator_username = #{operatorUsername},
+			operate_time = #{operateTime},
+			status = #{status},
+			status_context = #{statusContext}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM up_and_down_report
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

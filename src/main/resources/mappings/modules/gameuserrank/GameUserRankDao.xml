@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.gameuserrank.dao.GameUserRankDao">
+    
+	<sql id="gameUserRankColumns">
+		a.id AS "id",
+		a.min_avail AS "minAvail",
+		a.max_avail AS "maxAvail",
+		a.user_level AS "userLevel",
+		a.level_photourl AS "levelPhotourl",
+		a.levelno AS "levelno"
+	</sql>
+	
+	<sql id="gameUserRankJoins">
+	</sql>
+    
+	<select id="get" resultType="GameUserRank">
+		SELECT 
+			<include refid="gameUserRankColumns"/>
+		FROM game_user_rank a
+		<include refid="gameUserRankJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="GameUserRank">
+		SELECT 
+			<include refid="gameUserRankColumns"/>
+		FROM game_user_rank a
+		<include refid="gameUserRankJoins"/>
+		<where>
+			<if test="levelPhotourl != null and levelPhotourl != ''">
+				AND a.level_photourl = #{levelPhotourl}
+			</if>
+			<if test="minAvail != null and minAvail != ''">
+				AND a.min_avail = #{minAvail}
+			</if>
+			<if test="maxAvail != null and maxAvail != ''">
+				AND a.max_avail = #{maxAvail}
+			</if>
+			<if test="userLevel != null and userLevel != ''">
+				AND a.user_level = #{userLevel}
+			</if>
+			<if test="levelno != null and levelno != ''">
+				AND a.levelno = #{levelno}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="GameUserRank">
+		SELECT 
+			<include refid="gameUserRankColumns"/>
+		FROM game_user_rank a
+		<include refid="gameUserRankJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO game_user_rank(
+			id,
+			level_photourl,
+			min_avail,
+			max_avail,
+			user_level,
+			levelno
+		) VALUES (
+			#{id},
+			#{levelPhotourl},
+			#{minAvail},
+			#{maxAvail},
+			#{userLevel},
+			#{levelno}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE game_user_rank SET
+			level_photourl = #{levelPhotourl}, 	
+			min_avail = #{minAvail},
+			max_avail = #{maxAvail},
+			user_level = #{userLevel},
+			levelno = #{levelno}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM game_user_rank
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

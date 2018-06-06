@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.chatrecord.dao.ChatRecordDao">
+    
+	<sql id="chatRecordColumns">
+		a.id AS "id",
+		a.roomnumber AS "roomnumber",
+		a.calx AS "calx",
+		a.gameroom_id AS "gameroomId",
+		a.sender_userid AS "senderUserid",
+		a.sender_phone AS "senderPhone",
+		a.receiver_userid AS "receiverUserid",
+		a.receiver_phone AS "receiverPhone",
+		a.chat_type AS "chatType",
+		a.msg_content AS "msgContent",
+		a.msg_type AS "msgType",
+		a.voice_length AS "voiceLength",
+		a.url AS "url",
+		a.filename AS "filename",
+		a.secret AS "secret",
+		a.lat AS "lat",
+		a.lng AS "lng",
+		a.addr AS "addr",
+		a.senderphoto AS "senderphoto",
+		a.chatnumber AS "chatnumber",
+		a.sendernickname AS "sendernickname",
+		a.message_status AS "messageStatus",
+		a.respondent_userid AS "respondentUserid",
+		a.timestamp AS "timestamp"
+	</sql>
+	
+	<sql id="chatRecordJoins">
+	</sql>
+    
+	<select id="get" resultType="ChatRecord">
+		SELECT 
+			<include refid="chatRecordColumns"/>
+		FROM chat_record a
+		<include refid="chatRecordJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findListIIIBySenderUserid" resultType="ChatRecord">
+	    SELECT * FROM(
+		SELECT 
+			<include refid="chatRecordColumns"/>
+		FROM chat_record a
+		<include refid="chatRecordJoins"/>
+		<where> 1=1		
+		    <if test="messageStatus != null and messageStatus != ''">
+				AND a.message_status = #{messageStatus}
+			</if>
+			<if test="respondentUserid != null and respondentUserid != ''">
+				AND a.respondent_userid = #{respondentUserid}
+			</if>    
+			<if test="sendernickname != null and sendernickname != ''">
+				AND a.sendernickname = #{sendernickname}
+			</if>
+		    <if test="calx != null and calx != ''">
+				AND a.calx = #{calx}
+			</if>
+		    <if test="chatnumber != null and chatnumber != ''">
+				AND a.chatnumber = #{chatnumber}
+			</if>
+			<if test="senderphoto != null and senderphoto != ''">
+				AND a.senderphoto = #{senderphoto}
+			</if>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="roomnumber != null and roomnumber != ''">
+				AND a.roomnumber = #{roomnumber}
+			</if>
+			<if test="gameroomId != null and gameroomId != ''">
+				AND a.gameroom_id = #{gameroomId}
+			</if>
+			<if test="senderUserid != null and senderUserid != ''">
+				AND (a.sender_userid = #{senderUserid} or a.receiver_userid= #{senderUserid})
+			</if>
+			<if test="senderPhone != null and senderPhone != ''">
+				AND a.sender_phone = #{senderPhone}
+			</if>
+			<if test="receiverUserid != null and receiverUserid != ''">
+				AND a.receiver_userid = #{receiverUserid}
+			</if>
+			<if test="receiverPhone != null and receiverPhone != ''">
+				AND a.receiver_phone = #{receiverPhone}
+			</if>
+			<if test="chatType != null and chatType != ''">
+				AND a.chat_type = #{chatType}
+			</if>
+			<if test="msgContent != null and msgContent != ''">
+				AND a.msg_content = #{msgContent}
+			</if>
+			<if test="msgType != null and msgType != ''">
+				AND a.msg_type = #{msgType}
+			</if>
+			<if test="voiceLength != null and voiceLength != ''">
+				AND a.voice_length = #{voiceLength}
+			</if>
+			<if test="url != null and url != ''">
+				AND a.url = #{url}
+			</if>
+			<if test="filename != null and filename != ''">
+				AND a.filename = #{filename}
+			</if>
+			<if test="secret != null and secret != ''">
+				AND a.secret = #{secret}
+			</if>
+			<if test="lat != null and lat != ''">
+				AND a.lat = #{lat}
+			</if>
+			<if test="lng != null and lng != ''">
+				AND a.lng = #{lng}
+			</if>
+			<if test="addr != null and addr != ''">
+				AND a.addr = #{addr}
+			</if>
+			<if test="timestamp != null and timestamp != ''">
+				AND a.timestamp = #{timestamp}
+			</if>
+		</where>
+		<choose>
+			<when test="selectnum !=null and selectnum != ''">
+				ORDER BY a.chatnumber DESC limit  #{selectnum}
+			</when>
+			<otherwise>
+			ORDER BY a.chatnumber DESC limit 10
+			</otherwise>
+			
+		</choose>
+			) as b ORDER BY b.chatnumber ASC	
+			
+	</select>
+	
+	
+	
+	<select id="findListIII" resultType="ChatRecord">
+	    SELECT * FROM(
+		SELECT 
+			<include refid="chatRecordColumns"/>
+		FROM chat_record a
+		<include refid="chatRecordJoins"/>
+		<where> 1=1		
+		    <if test="messageStatus != null and messageStatus != ''">
+				AND a.message_status = #{messageStatus}
+			</if>
+			<if test="respondentUserid != null and respondentUserid != ''">
+				AND a.respondent_userid = #{respondentUserid}
+			</if>    
+			<if test="sendernickname != null and sendernickname != ''">
+				AND a.sendernickname = #{sendernickname}
+			</if>
+		    <if test="calx != null and calx != ''">
+				AND a.calx = #{calx}
+			</if>
+		    <if test="chatnumber != null and chatnumber != ''">
+				AND a.chatnumber = #{chatnumber}
+			</if>
+			<if test="senderphoto != null and senderphoto != ''">
+				AND a.senderphoto = #{senderphoto}
+			</if>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="roomnumber != null and roomnumber != ''">
+				AND a.roomnumber = #{roomnumber}
+			</if>
+			<if test="gameroomId != null and gameroomId != ''">
+				AND a.gameroom_id = #{gameroomId}
+			</if>
+			<if test="senderUserid != null and senderUserid != ''">
+				AND a.sender_userid = #{senderUserid}
+			</if>
+			<if test="senderPhone != null and senderPhone != ''">
+				AND a.sender_phone = #{senderPhone}
+			</if>
+			<if test="receiverUserid != null and receiverUserid != ''">
+				AND a.receiver_userid = #{receiverUserid}
+			</if>
+			<if test="receiverPhone != null and receiverPhone != ''">
+				AND a.receiver_phone = #{receiverPhone}
+			</if>
+			<if test="chatType != null and chatType != ''">
+				AND a.chat_type = #{chatType}
+			</if>
+			<if test="msgContent != null and msgContent != ''">
+				AND a.msg_content = #{msgContent}
+			</if>
+			<if test="msgType != null and msgType != ''">
+				AND a.msg_type = #{msgType}
+			</if>
+			<if test="voiceLength != null and voiceLength != ''">
+				AND a.voice_length = #{voiceLength}
+			</if>
+			<if test="url != null and url != ''">
+				AND a.url = #{url}
+			</if>
+			<if test="filename != null and filename != ''">
+				AND a.filename = #{filename}
+			</if>
+			<if test="secret != null and secret != ''">
+				AND a.secret = #{secret}
+			</if>
+			<if test="lat != null and lat != ''">
+				AND a.lat = #{lat}
+			</if>
+			<if test="lng != null and lng != ''">
+				AND a.lng = #{lng}
+			</if>
+			<if test="addr != null and addr != ''">
+				AND a.addr = #{addr}
+			</if>
+			<if test="timestamp != null and timestamp != ''">
+				AND a.timestamp = #{timestamp}
+			</if>
+		</where>
+		<choose>
+			<when test="selectnum !=null and selectnum != ''">
+				ORDER BY a.chatnumber DESC limit  #{selectnum}
+			</when>
+			<otherwise>
+			ORDER BY a.chatnumber DESC limit 10
+			</otherwise>
+			
+		</choose>
+			) as b ORDER BY b.chatnumber ASC	
+			
+	</select>
+	
+	<select id="findListII" resultType="ChatRecord">
+		SELECT 
+			<include refid="chatRecordColumns"/>
+		FROM chat_record a
+		<include refid="chatRecordJoins"/>
+		<where>  1=1
+		     <if test="calxids != '' and calxids != null">
+				AND a.calx in<foreach collection="calxids" item="item" index="index"
+            open="(" close=")" separator=",">
+            #{item,jdbcType=VARCHAR}
+        </foreach>
+			</if>
+			<if test="messageStatus != null and messageStatus != ''">
+				AND a.message_status = #{messageStatus}
+			</if>
+			<if test="respondentUserid != null and respondentUserid != ''">
+				AND a.respondent_userid = #{respondentUserid}
+			</if>    
+			<if test="sendernickname != null and sendernickname != ''">
+				AND a.sendernickname = #{sendernickname}
+			</if>
+		    <if test="calx != null and calx != ''">
+				AND a.calx = #{calx}
+			</if>
+		    <if test="chatnumber != null and chatnumber != ''">
+				AND a.chatnumber = #{chatnumber}
+			</if>
+			<if test="senderphoto != null and senderphoto != ''">
+				AND a.senderphoto = #{senderphoto}
+			</if>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="roomnumber != null and roomnumber != ''">
+				AND a.roomnumber = #{roomnumber}
+			</if>
+			<if test="gameroomId != null and gameroomId != ''">
+				AND a.gameroom_id = #{gameroomId}
+			</if>
+			<if test="senderUserid != null and senderUserid != ''">
+				AND a.sender_userid = #{senderUserid}
+			</if>
+			<if test="senderPhone != null and senderPhone != ''">
+				AND a.sender_phone = #{senderPhone}
+			</if>
+			<if test="receiverUserid != null and receiverUserid != ''">
+				AND a.receiver_userid = #{receiverUserid}
+			</if>
+			<if test="receiverPhone != null and receiverPhone != ''">
+				AND a.receiver_phone = #{receiverPhone}
+			</if>
+			<if test="chatType != null and chatType != ''">
+				AND a.chat_type = #{chatType}
+			</if>
+			<if test="msgContent != null and msgContent != ''">
+				AND a.msg_content = #{msgContent}
+			</if>
+			<if test="msgType != null and msgType != ''">
+				AND a.msg_type = #{msgType}
+			</if>
+			<if test="voiceLength != null and voiceLength != ''">
+				AND a.voice_length = #{voiceLength}
+			</if>
+			<if test="url != null and url != ''">
+				AND a.url = #{url}
+			</if>
+			<if test="filename != null and filename != ''">
+				AND a.filename = #{filename}
+			</if>
+			<if test="secret != null and secret != ''">
+				AND a.secret = #{secret}
+			</if>
+			<if test="lat != null and lat != ''">
+				AND a.lat = #{lat}
+			</if>
+			<if test="lng != null and lng != ''">
+				AND a.lng = #{lng}
+			</if>
+			<if test="addr != null and addr != ''">
+				AND a.addr = #{addr}
+			</if>
+			<if test="timestamp != null and timestamp != ''">
+				AND a.timestamp = #{timestamp}
+			</if>
+		</where>
+		
+				ORDER BY a.chatnumber DESC
+			
+	</select>
+	
+	
+	<select id="findList" resultType="ChatRecord">
+		SELECT 
+			<include refid="chatRecordColumns"/>
+		FROM chat_record a
+		<include refid="chatRecordJoins"/>
+		<where>  1=1
+		    <if test="sendernickname != null and sendernickname != ''">
+				AND a.sendernickname = #{sendernickname}
+			</if>
+		    <if test="calx != null and calx != ''">
+				AND a.calx = #{calx}
+			</if>
+		    <if test="chatnumber != null and chatnumber != ''">
+				AND a.chatnumber = #{chatnumber}
+			</if>
+			<if test="senderphoto != null and senderphoto != ''">
+				AND a.senderphoto = #{senderphoto}
+			</if>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="roomnumber != null and roomnumber != ''">
+				AND a.roomnumber = #{roomnumber}
+			</if>
+			<if test="gameroomId != null and gameroomId != ''">
+				AND a.gameroom_id = #{gameroomId}
+			</if>
+			<if test="senderUserid != null and senderUserid != ''">
+				AND a.sender_userid = #{senderUserid}
+			</if>
+			<if test="senderPhone != null and senderPhone != ''">
+				AND a.sender_phone = #{senderPhone}
+			</if>
+			<if test="receiverUserid != null and receiverUserid != ''">
+				AND a.receiver_userid = #{receiverUserid}
+			</if>
+			<if test="receiverPhone != null and receiverPhone != ''">
+				AND a.receiver_phone = #{receiverPhone}
+			</if>
+				<if test="messageStatus != null and messageStatus != ''">
+				AND a.message_status = #{messageStatus}
+			</if>
+			<if test="respondentUserid != null and respondentUserid != ''">
+				AND a.respondent_userid = #{respondentUserid}
+			</if>    
+				AND a.chat_type = 'customerservicechat'
+			<if test="msgContent != null and msgContent != ''">
+				AND a.msg_content = #{msgContent}
+			</if>
+			<if test="msgType != null and msgType != ''">
+				AND a.msg_type = #{msgType}
+			</if>
+			<if test="voiceLength != null and voiceLength != ''">
+				AND a.voice_length = #{voiceLength}
+			</if>
+			<if test="url != null and url != ''">
+				AND a.url = #{url}
+			</if>
+			<if test="filename != null and filename != ''">
+				AND a.filename = #{filename}
+			</if>
+			<if test="secret != null and secret != ''">
+				AND a.secret = #{secret}
+			</if>
+			<if test="lat != null and lat != ''">
+				AND a.lat = #{lat}
+			</if>
+			<if test="lng != null and lng != ''">
+				AND a.lng = #{lng}
+			</if>
+			<if test="addr != null and addr != ''">
+				AND a.addr = #{addr}
+			</if>
+			<if test="timestamp != null and timestamp != ''">
+				AND a.timestamp = #{timestamp}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="ChatRecord">
+		SELECT 
+			<include refid="chatRecordColumns"/>
+		FROM chat_record a
+		<include refid="chatRecordJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO chat_record(
+			id,
+			message_status,
+			respondent_userid,
+			sendernickname,
+			calx,
+			roomnumber,
+			gameroom_id,
+			sender_userid,
+			sender_phone,
+			receiver_userid,
+			receiver_phone,
+			chat_type,
+			msg_content,
+			msg_type,
+			voice_length,
+			url,
+			filename,
+			secret,
+			lat,
+			lng,
+			addr,
+			senderphoto,
+			chatnumber,
+			timestamp
+		) VALUES (
+			#{id},
+			#{messageStatus},
+			#{respondentUserid},
+			#{sendernickname},
+			#{calx},
+			#{roomnumber},
+			#{gameroomId},
+			#{senderUserid},
+			#{senderPhone},
+			#{receiverUserid},
+			#{receiverPhone},
+			#{chatType},
+			#{msgContent},
+			#{msgType},
+			#{voiceLength},
+			#{url},
+			#{filename},
+			#{secret},
+			#{lat},
+			#{lng},
+			#{addr},
+			#{senderphoto},
+			#{chatnumber},
+			#{timestamp}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE chat_record SET 
+			message_status = #{messageStatus},
+			respondent_userid = #{respondentUserid},	
+			calx = #{calx},
+			sendernickname = #{sendernickname},
+			chatnumber = #{chatnumber},
+			senderphoto = #{senderphoto},
+			roomnumber = #{roomnumber},
+			gameroom_id = #{gameroomId},
+			sender_userid = #{senderUserid},
+			sender_phone = #{senderPhone},
+			receiver_userid = #{receiverUserid},
+			receiver_phone = #{receiverPhone},
+			chat_type = #{chatType},
+			msg_content = #{msgContent},
+			msg_type = #{msgType},
+			voice_length = #{voiceLength},
+			url = #{url},
+			filename = #{filename},
+			secret = #{secret},
+			lat = #{lat},
+			lng = #{lng},
+			addr = #{addr},
+			timestamp = #{timestamp}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM chat_record
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

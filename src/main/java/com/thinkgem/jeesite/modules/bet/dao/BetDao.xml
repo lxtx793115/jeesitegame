@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.bet.dao.BetDao">
+	<!--插入房间 -->
+	<select id="getGamelistByIssue" resultType="m" parameterType="m">
+		select gg.id, gg.room_id,gg.issue from game_game gg where gg.issue=#{issue}
+	</select>
+	<!--通过游戏场次id 获取到所有参加游戏的人，和押注数据  -->
+	<select id="getUserListByGameid" resultType="m" parameterType="m">
+		select * from  game_bets gb where gb.game_id=#{gameid}
+	</select>
+	<!--通过房间id获取游戏赔率  -->
+	<select id="getOddbyRoomid" resultType="m" parameterType="m">
+		select* from game_odds where room_id=#{room_id}	
+	</select>
+	<!-- 修改用户余额 -->
+	<update id="increaseUserMoney"  parameterType="m">
+		 update game_user gu  set  gu.balance =gu.balance + ${money}	  where gu.id=#{id}	
+	</update>
+	<!--保存用户余额变化明细  -->
+	<update id="saveUserBalanceChange"  parameterType="m">
+		 INSERT INTO `game`.`game_user_balance_change` 
+		 (`id`, `game_user_id`, `change`, `bet_type`, `game_id`, `create_by`, `create_date`, `update_by`, `update_date`, `remarks`, `del_flag`) 
+		 VALUES ('1', NULL, NULL, NULL, NULL, NULL, now(), NULL, now(), NULL, '0');
+	</update>
+	
+	
+	
+	
+</mapper>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.receivingbankaccount.dao.ReceivingBankAccountDao">
+    
+	<sql id="receivingBankAccountColumns">
+		a.id AS "id",
+		a.account_sequence AS "accountSequence",
+		a.account AS "account",
+		a.account_type AS "accountType",
+		a.real_name AS "realName",
+		a.icon_photo AS "iconPhoto",
+		a.kindly_reminder AS "kindlyReminder",
+		a.two_dimensional_code AS "twoDimensionalCode"
+	</sql>
+	
+	<sql id="receivingBankAccountJoins">
+	</sql>
+    
+	<select id="get" resultType="ReceivingBankAccount">
+		SELECT 
+			<include refid="receivingBankAccountColumns"/>
+		FROM receiving_bank_account a
+		<include refid="receivingBankAccountJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="ReceivingBankAccount">
+		SELECT 
+			<include refid="receivingBankAccountColumns"/>
+		FROM receiving_bank_account a
+		<include refid="receivingBankAccountJoins"/>
+		<where>
+			<if test="kindlyReminder != null and kindlyReminder != ''">
+				AND a.kindly_reminder = #{kindlyReminder}
+			</if>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="accountSequence != null and accountSequence != ''">
+				AND a.account_sequence = #{accountSequence}
+			</if>
+			<if test="account != null and account != ''">
+				AND a.account = #{account}
+			</if>
+			<if test="accountType != null and accountType != ''">
+				AND a.account_type = #{accountType}
+			</if>
+			<if test="realName != null and realName != ''">
+				AND a.real_name = #{realName}
+			</if>
+			<if test="iconPhoto != null and iconPhoto != ''">
+				AND a.icon_photo = #{iconPhoto}
+			</if>
+			<if test="twoDimensionalCode != null and twoDimensionalCode != ''">
+				AND a.two_dimensional_code = #{twoDimensionalCode}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="ReceivingBankAccount">
+		SELECT 
+			<include refid="receivingBankAccountColumns"/>
+		FROM receiving_bank_account a
+		<include refid="receivingBankAccountJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO receiving_bank_account(
+			id,
+			account,
+			account_type,
+			real_name,
+			icon_photo,
+			kindly_reminder,
+			two_dimensional_code
+		) VALUES (
+			#{id},
+			#{account},
+			#{accountType},
+			#{realName},
+			#{iconPhoto},
+			#{kindlyReminder},
+			#{twoDimensionalCode}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE receiving_bank_account SET 	
+			kindly_reminder = #{kindlyReminder},
+			account = #{account},
+			account_type = #{accountType},
+			real_name = #{realName},
+			icon_photo = #{iconPhoto},
+			two_dimensional_code = #{twoDimensionalCode}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM receiving_bank_account
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

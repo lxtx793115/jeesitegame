@@ -1,0 +1,500 @@
+.top-main {
+	background-color: #f5f5f5;
+	height: 80px;
+	line-height: 80px;
+	min-width: 1200px;
+}
+.css_home_link .wanjia-link {
+	display: inline-block;
+	width: 130px;
+	height: 45px;
+	margin-top: 22px;
+	background: url(/webpage/jsp/common/images/mm-logo.png) no-repeat;
+	background-size: 100%;
+}
+.css_home_link h1 {
+	display: inline-block;
+	margin-left: 10px;
+	margin-top: 27px;
+	font-size: 20px;
+	line-height: 28px;
+}
+.support_link .hotline {
+	color: #4d4d4d;
+	font-style: italic;
+}
+.support_link .hotline .phonenum {
+	font-weight: bold;
+	font-size: 20px;
+	font-family: "Microsoft Yahei";
+}
+.support_link .wechat_link {
+	padding-left: 34px;
+	margin-right: 94px;
+}
+.support_link .split {
+	display: inline-block;
+	height: 22px;
+	width: 1px;
+	background-color: #ddd;
+	margin-top: 29px;
+	margin-left: 34px;
+}
+.support_link .wechat_logo {
+	display: inline-block;
+	width: 33px;
+	height: 33px;
+	background: url(/webpage/jsp/denglu/images/support_icons.png) -376px -8px no-repeat;
+	vertical-align: -11px;
+}
+.erm_code:hover .wechat_logo {
+	background-position: right;
+}
+.erm_code a {
+	color: #858484;
+}
+.erm_code .erm_img {
+	position: absolute;
+	top: 80px;
+	left: -58px;
+	display: none;
+	z-index: 999;
+	width: 116px;
+	font-size: 12px;
+	padding:14px 16px;
+	text-align: center;
+	border: #d7d7d7 6px solid;
+	background-color: #fff;
+	color: #12B5B0;
+	cursor: default;
+}
+.erm_code .erm_img:before {
+	content: '';
+	position: absolute;
+	top: -26px;
+	left: 56px;
+	width: 0;
+	height: 0;
+	border-width: 10px;
+	border-style: solid;
+	border-color: transparent transparent #d7d7d7 transparent;
+}
+.erm_code .erm_img:after {
+	content: '';
+	position: absolute;
+	top: -20px;
+	left: 56px;
+	width: 0;
+	height: 0;
+	border-width: 10px;
+	border-style: solid;
+	border-color: transparent transparent #fff transparent;
+}
+.erm_code .erm_img i {
+	font-size: 12px;
+	line-height: 12px;
+	color: #196ec8;
+}
+.erm_code .erm_img p {
+	font-size: 12px;
+	line-height: 26px;
+	text-align: left;
+}
+.erm_code .erm_img img {
+	width: 116px;
+	height: 116px;
+	line-height: 0;
+	display: inline-block;
+}
+.erm_code:hover .erm_img {
+	display: inline-block;
+}
+.css_cache {
+	font-size: 14px;
+	line-height: 14px;
+	margin-bottom: 14px;
+}
+.css_cache .css_account_cached {
+	margin-left: 10px;
+	color: #666;
+}
+.css_cache .css_account_cached input[type="checkbox"] {
+	margin-right: 20px;
+}
+.login-link {
+	font-size: 12px;
+	line-height: 14px;
+	margin-top: -4px;
+}
+.login-link a {
+	color: #12B5B0;
+}
+.login-link a:hover {
+	color: #169490;
+}
+.css_login_link {
+	line-height: 40px;
+	margin-top: 0;
+}
+/*登录部分*/
+.css-login-main {
+	height: 470px;
+	background-color: #fff;
+	background: url(../images/login_bg.png) center/cover no-repeat;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/resources/images/pc/login/login_bg.png",
+		sizingMethod='scale');
+}
+
+.css-login-body {
+	width: 1200px;
+	margin: 0 auto;
+	/* height: 100%; */
+	background: url(../images/body_bg.jpg) left bottom no-repeat;
+}
+
+.login-body {
+	width: 372px;
+	height: 360px;
+	float: right;
+	margin-top: 50px;
+	margin-right: 100px;
+	text-align: center;
+	background-color: #fff;
+	position: relative;
+	box-shadow: 0 0 10px rgba(7, 7, 7, 0.12);
+	border: #ddd 1px solid\0;
+}
+.main-wrap span, .main-wrap a, .main-wrap input {
+	display: inline-block;
+}
+.css_login_with_pwd {
+	margin: 40px 35px 25px;
+}
+/*诊所登录页面优化样式*/
+.way-tab {
+	margin-bottom: 32px;
+}
+.way-tab li {
+	font-size: 18px;
+	color: #333;
+	float: left;
+	width: 50%;
+	border-right: #e9ecee 1px solid;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+.way-tab li.tab-current {
+	color: #12B5B0;
+}
+.way-tab li.no_border {
+	border: 0;
+}
+.login-way li {
+	position: relative;
+	margin-bottom: 14px;
+}
+.login-way .input_icon {
+	width: 30px;
+	height: 30px;
+	background: url(../images/login_input_icon.png) no-repeat
+		center 3px;
+	position: absolute;
+	left: 15px;
+	top: 7px;
+}
+.login-way .input_icon.pwd_icon {
+	background-position: center;
+}
+.login-way .input_icon.captcha_icon {
+	background-position: center -116px;
+}
+.login-way input[type="text"] {
+	width: 100%;
+	height: 40px;
+	border: #ddd 1px solid;
+	border-radius: 5px;
+	margin: 0;
+	padding: 0;
+	padding-left: 65px;
+	box-sizing: border-box;
+	font-size: 14px;
+	line-height: 40px;
+}
+.login-way input[type="password"] {
+	width: 100%;
+	height: 40px;
+	border: #ddd 1px solid;
+	border-radius: 5px;
+	margin: 0;
+	padding: 0;
+	padding-left: 65px;
+	box-sizing: border-box;
+	font-size: 14px;
+	line-height: 40px;
+}
+.login-way input:focus {
+	box-shadow: 0px 0px 1px 1px #12B5B0;
+	border: none;
+	border: #12B5B0 1px solid\9;
+}
+.login-way .dynamic_code {
+	text-align: left;
+}
+.login-way .dynamic_code input {
+	width: 68%;
+}
+.send_code {
+	font-size: 12px;
+	width: 28.7%;
+	height: 40px;
+	display: inline-block;
+	border: 0;
+	border-radius: 5px;
+	line-height: 40px;
+	color: #12B5B0;
+	cursor: pointer;
+	background-color: #c6edea;
+	text-align: center;
+	vertical-align: middle;
+	float: right;
+}
+.login-way input::-webkit-input-placeholder {
+	font-size: 14px;
+	color: #818181;
+}
+.login-way input:-moz-placeholder {
+	font-size: 14px;
+	color: #818181;
+}
+.login-way input::-moz-placeholder {
+	font-size: 14px;
+	color: #818181;
+}
+.login-way input::-ms-input-placeholder {
+	font-size: 14px;
+	color: #818181;
+}
+.login-way .captcha {
+	position: absolute;
+	right: 10px;
+	width: 97px;
+	height: 30px;
+	top: 8px;
+	border: #ddd 1px solid;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.login-way .captcha img {
+	height: 100%;
+	width: 100%;
+	cursor: pointer;
+}
+.commitBtn {
+	width: 100%;
+	font-size: 20px;
+	color: #fff;
+	background: #12B5B0;
+	border-radius: 4px;
+	border: none;
+	height: 46px;
+	line-height: 46px;
+	padding: 0;
+	outline: none;
+	cursor: pointer;
+}
+.commitBtn:hover {
+	background-color: #169490;
+}
+.validation_summary {
+	font-size: 12px;
+	width: 100%;
+	height: 24px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	line-height: 22px;
+	text-align: left;
+	margin-bottom: 4px;
+	margin-top: -28px;
+	border: 1px solid;
+}
+.validation_summary em {
+	width: 16px;
+	height: 22px;
+	/* background: url(../images/validation_icon.png) no-repeat; */
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.validation_summary.success {
+	color: #76a91d;
+	border-color: #76a91d;
+	background-color: #f1ffea;
+}
+.validation_summary.success em {
+	background-position: -26px 2px;
+}
+.validation_summary.error {
+	color: #ef5555;
+	background: #ffebeb;
+	border-color: #ef5555;
+}
+.validation_summary.error em {
+	background-position: -1px 2px;
+}
+/*诊所登录尾部，小图标*/
+.login_footer {
+	min-height: 144px;
+	line-height: 34px;
+	min-width: 1200px;
+	font-size: 14px;
+	position: relative;
+	color: #717171;
+	text-align: center;
+	margin-top: 0px;
+}
+.login_footer .support_link li {
+	width: 25%;
+	float: left;
+	text-align: center;
+}
+.login_footer .support_link li a {
+	width: 62px;
+	line-height: 44px;
+	color: #4d4d4d;
+	text-align: center;
+	display: inline-block;
+}
+.login_footer .support_link li a em {
+	display: block;
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+	background-repeat: no-repeat;
+	/*background-color: #12B5B0;*/
+	background-size: 100%;
+	background-position: center;
+	border-radius: 50%;
+}
+.login_footer .support_link a em.about {
+	background-image: url(/webpage/jsp/common/images/dl-1.png);
+}
+.login_footer .support_link a em.join {
+	background-image: url(/webpage/jsp/common/images/dl-2.png);
+}
+.login_footer .support_link a em.contact {
+	background-image: url(/webpage/jsp/common/images/dl-3.png);
+}
+.login_footer .support_link a em.employ {
+	background-image: url(/webpage/jsp/common/images/dl-4.png);
+}
+.login_footer .support_link li .split {
+	float: right;
+	height: 73px;
+	width: 1px;
+	background-color: #12B5B0;
+	margin: 0;
+}
+.css_footer_copyright {
+	font-size: 12px;
+	margin-top: 10px;
+	margin-bottom: 0;
+}
+.pwd-reset-dialog-bg {
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: .5;
+	filter: alpha(opacity = 50);
+	-moz-opacity: 0.5;
+	z-index: 998;
+	display: none;
+}
+.pwd-reset-dialog {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	padding: 20px 30px;
+	margin-top: -235px;
+	margin-left: -268px;
+	width: 300px;
+	border: 7px solid #e2e2e2;
+	background: #FFF;
+	z-index: 2001;
+	display: none;
+}
+.pwd-form-list {
+	width: 100%;
+	float: left;
+}
+.pwd-form-list .title {
+	padding-bottom: 20px;
+	color: #847238;
+	text-align: left;
+	font-size: 15px;
+}
+.pwd-form-list input {
+	width: 278px;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 10px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #d8d8d8;
+	outline: none;
+	margin: 5px 0;
+	float: left;
+}
+.pwd-form-list-msg-code {
+	width: 160px !important;
+	padding: 0 10px !important;
+}
+.pwd-form-list .newPasswordYzm {
+	width: 110px;
+	height: 40px;
+	border: 1px solid #d8d8d8;
+	margin: 5px 0;
+	cursor: pointer;
+	float: left;
+	margin-left: 5px;
+}
+.pwd-reset-btn {
+	width: 298px !important;
+	height: 42px !important;
+	line-height: 42px;
+	text-align: center;
+	font-size: 18px;
+	font-family: "Microsoft Yahei";
+	color: #fff;
+	background: #ff9913;
+	cursor: pointer;
+	display: block;
+	border: none;
+	margin: 0 auto;
+	padding: 0;
+	margin-top: 14px;
+}
+.pwd-form-list .pwd-reset-error-msg {
+	padding-bottom: 20px;
+	color: #847238;
+	text-align: left;
+	font-size: 15px;
+}
+.pwd-form-list .pwd-reset-error-msg em {
+	float: left;
+	width: 16px;
+	height: 22px;
+	background: url(../images/validation_icon.png) no-repeat;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 0px;
+	margin-right: 5px;
+}
+.pwd-form-list .pwd-reset-error-msg em.success {
+	background-position: -26px 2px;
+}
+#autoLoginTime {
+	color: red;
+}

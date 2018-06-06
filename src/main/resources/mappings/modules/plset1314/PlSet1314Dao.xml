@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.plset1314.dao.PlSet1314Dao">
+    
+	<sql id="plSet1314Columns">
+		a.id AS "id",
+		a.roomnumber AS "roomnumber",
+		a.gameroom_id AS "gameroomId",
+		a.dxds_sum1 AS "dxdsSum1",
+		a.dxds_price1 AS "dxdsPrice1",
+		a.dxds_sum2 AS "dxdsSum2",
+		a.dxds_price2 AS "dxdsPrice2",
+		a.dxds_price3 AS "dxdsPrice3",
+		a.combination_sum1 AS "combinationSum1",
+		a.combination_price1 AS "combinationPrice1",
+		a.combination_sum2 AS "combinationSum2",
+		a.combination_price2 AS "combinationPrice2",
+		a.combination_price3 AS "combinationPrice3",
+		a.baozi_price AS "baoziPrice",
+		a.duizi_price AS "duiziPrice"
+	</sql>
+	
+	<sql id="plSet1314Joins">
+	</sql>
+    
+	<select id="get" resultType="PlSet1314">
+		SELECT 
+			<include refid="plSet1314Columns"/>
+		FROM 1314_pl_set a
+		<include refid="plSet1314Joins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="PlSet1314">
+		SELECT 
+			<include refid="plSet1314Columns"/>
+		FROM 1314_pl_set a
+		<include refid="plSet1314Joins"/>
+		<where>
+		1=1
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="gameroomId != null and gameroomId != ''">
+				AND a.gameroom_id = #{gameroomId}
+			</if>
+			<if test="roomnumber != null and roomnumber != ''">
+				AND a.roomnumber = #{roomnumber}
+			</if>
+			<if test="dxdsSum1 != null ">
+				AND a.dxds_sum1 = #{dxdsSum1}
+			</if>
+			<if test="dxdsPrice1 != null ">
+				AND a.dxds_price1 = #{dxdsPrice1}
+			</if>	
+			<if test="dxdsSum2 != null ">
+				AND a.dxds_sum2 = #{dxdsSum2}
+			</if>	
+			<if test="dxdsPrice2 != null ">
+				AND a.dxds_price2 = #{dxdsPrice2}
+			</if>	
+			<if test="dxdsPrice3 != null ">
+				AND a.dxds_price3 = #{dxdsPrice3}
+			</if>	
+			<if test="combinationSum1 != null ">
+				AND a.combination_sum1 = #{combinationSum1}
+			</if>	
+			<if test="combinationPrice1 != null ">
+				AND a.combination_price1 = #{combinationPrice1}
+			</if>	
+			<if test="combinationSum2 != null ">
+				AND a.combination_sum2 = #{combinationSum2}
+			</if>	
+			<if test="combinationPrice2 != null ">
+				AND a.combination_price2 = #{combinationPrice2}
+			</if>	
+			<if test="combinationPrice3 != null ">
+				AND a.combination_price3 = #{combinationPrice3}
+			</if>	
+			<if test="baoziPrice != null ">
+				AND a.baozi_price = #{baoziPrice}
+			</if>	
+			<if test="duiziPrice != null ">
+				AND a.duizi_price = #{duiziPrice}
+			</if>		
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="PlSet1314">
+		SELECT 
+			<include refid="plSet1314Columns"/>
+		FROM 1314_pl_set a
+		<include refid="plSet1314Joins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO 1314_pl_set(
+			id,
+			roomnumber,
+			gameroom_id,
+			dxds_sum1,
+			dxds_price1,
+			dxds_sum2,
+			dxds_price2,
+			dxds_price3,
+			combination_sum1,
+			combination_price1,
+			combination_sum2,
+			combination_price2,
+			combination_price3,
+			baozi_price,
+			duizi_price
+		) VALUES (
+			#{id},
+			#{roomnumber},
+			#{gameroomId},
+			#{dxdsSum1},
+			#{dxdsPrice1},
+			#{dxdsSum2},
+			#{dxdsPrice2},
+			#{dxdsPrice3},
+			#{combinationSum1},
+			#{combinationPrice1},
+			#{combinationSum2},
+			#{combinationPrice2},
+			#{combinationPrice3},
+			#{baoziPrice},
+			#{duiziPrice}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE 1314_pl_set SET 	
+			roomnumber = #{roomnumber},
+			gameroom_id = #{gameroomId},
+			dxds_sum1 = #{dxdsSum1},
+			dxds_price1 = #{dxdsPrice1},
+			dxds_sum2 = #{dxdsSum2},
+			dxds_price2 = #{dxdsPrice2},
+			dxds_price3 = #{dxdsPrice3},
+			combination_sum1 = #{combinationSum1},
+			combination_price1 = #{combinationPrice1},
+			combination_sum2 = #{combinationSum2},
+			combination_price2 = #{combinationPrice2},
+			combination_price3 = #{combinationPrice3},
+			baozi_price = #{baoziPrice},
+			duizi_price = #{duiziPrice}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM 1314_pl_set
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

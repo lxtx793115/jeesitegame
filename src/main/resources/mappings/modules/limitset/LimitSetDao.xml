@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.limitset.dao.LimitSetDao">
+    
+	<sql id="limitSetColumns">
+		a.id AS "id",
+		a.roomnumber AS "roomnumber",
+		a.gameroom_id AS "gameroomId",
+		a.total_quota AS "totalQuota",
+		a.tema_min AS "temaMin",
+		a.tema_max AS "temaMax",
+		a.daxiaodanshuang_min AS "daxiaodanshuangMin",
+		a.daxiaodanshuang_max AS "daxiaodanshuangMax",
+		a.zuhedanshuang_min AS "zuhedanshuangMin",
+		a.zuhedanshuang_max AS "zuhedanshuangMax",
+		a.jizhi_min AS "jizhiMin",
+		a.jizhi_max AS "jizhiMax",
+		a.boshe_min AS "bosheMin",
+		a.boshe_max AS "bosheMax",
+		a.baoziduizi_min AS "baoziduiziMin",
+		a.baoziduizi_max AS "baoziduiziMax"
+	</sql>
+	
+	<sql id="limitSetJoins">
+	</sql>
+    
+	<select id="get" resultType="LimitSet">
+		SELECT 
+			<include refid="limitSetColumns"/>
+		FROM limit_set a
+		<include refid="limitSetJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="LimitSet">
+		SELECT 
+			<include refid="limitSetColumns"/>
+		FROM limit_set a
+		<include refid="limitSetJoins"/>
+		<where>
+			
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="roomnumber != null and roomnumber != ''">
+				AND a.roomnumber = #{roomnumber}
+			</if>
+			<if test="gameroomId != null and gameroomId != ''">
+				AND a.gameroom_id = #{gameroomId}
+			</if>
+			<if test="totalQuota != null and totalQuota != ''">
+				AND a.total_quota = #{totalQuota}
+			</if>
+			<if test="temaMin != null and temaMin != ''">
+				AND a.tema_min = #{temaMin}
+			</if>
+			<if test="temaMax != null and temaMax != ''">
+				AND a.tema_max = #{temaMax}
+			</if>
+			<if test="daxiaodanshuangMin != null and daxiaodanshuangMin != ''">
+				AND a.daxiaodanshuang_min = #{daxiaodanshuangMin}
+			</if>
+			<if test="daxiaodanshuangMax != null and daxiaodanshuangMax != ''">
+				AND a.daxiaodanshuang_max = #{daxiaodanshuangMax}
+			</if>
+			<if test="zuhedanshuangMin != null and zuhedanshuangMin != ''">
+				AND a.zuhedanshuang_min = #{zuhedanshuangMin}
+			</if>
+			<if test="zuhedanshuangMax != null and zuhedanshuangMax != ''">
+				AND a.zuhedanshuang_max = #{zuhedanshuangMax}
+			</if>
+			<if test="jizhiMin != null and jizhiMin != ''">
+				AND a.jizhi_min = #{jizhiMin}
+			</if>
+			<if test="jizhiMax != null and jizhiMax != ''">
+				AND a.jizhi_max = #{jizhiMax}
+			</if>
+			<if test="bosheMin != null and bosheMin != ''">
+				AND a.boshe_min = #{bosheMin}
+			</if>
+			<if test="bosheMax != null and bosheMax != ''">
+				AND a.boshe_max = #{bosheMax}
+			</if>
+			<if test="baoziduiziMin != null and baoziduiziMin != ''">
+				AND a.baoziduizi_min = #{baoziduiziMin}
+			</if>
+			<if test="baoziduiziMax != null and baoziduiziMax != ''">
+				AND a.baoziduizi_max = #{baoziduiziMax}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="LimitSet">
+		SELECT 
+			<include refid="limitSetColumns"/>
+		FROM limit_set a
+		<include refid="limitSetJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO limit_set(
+			id,
+			roomnumber,
+			gameroom_id,
+			total_quota,
+			tema_min,
+			tema_max,
+			daxiaodanshuang_min,
+			daxiaodanshuang_max,
+			zuhedanshuang_min,
+			zuhedanshuang_max,
+			jizhi_min,
+			jizhi_max,
+			boshe_min,
+			boshe_max,
+			baoziduizi_min,
+			baoziduizi_max
+		) VALUES (
+			#{id},
+			#{roomnumber},
+			#{gameroomId},
+			#{totalQuota},
+			#{temaMin},
+			#{temaMax},
+			#{daxiaodanshuangMin},
+			#{daxiaodanshuangMax},
+			#{zuhedanshuangMin},
+			#{zuhedanshuangMax},
+			#{jizhiMin},
+			#{jizhiMax},
+			#{bosheMin},
+			#{bosheMax},
+			#{baoziduiziMin},
+			#{baoziduiziMax}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE limit_set SET 	
+			roomnumber = #{roomnumber},
+			gameroom_id = #{gameroomId},
+			total_quota = #{totalQuota},
+			tema_min = #{temaMin},
+			tema_max = #{temaMax},
+			daxiaodanshuang_min = #{daxiaodanshuangMin},
+			daxiaodanshuang_max = #{daxiaodanshuangMax},
+			zuhedanshuang_min = #{zuhedanshuangMin},
+			zuhedanshuang_max = #{zuhedanshuangMax},
+			jizhi_min = #{jizhiMin},
+			jizhi_max = #{jizhiMax},
+			boshe_min = #{bosheMin},
+			boshe_max = #{bosheMax},
+			baoziduizi_min = #{baoziduiziMin},
+			baoziduizi_max = #{baoziduiziMax}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM limit_set
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

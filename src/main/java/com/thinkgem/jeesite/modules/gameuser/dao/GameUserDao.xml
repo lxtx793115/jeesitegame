@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.gameuser.dao.GameUserDao">
+	<!--插入用户  -->
+	<insert id="insertUser">
+		<!-- insert game_user(username, password, phone, no,salt,createDate) values(#{gameuser.username},#{gameuser.password},#{gameuser.phone},#{gameuser.no},#{gameuser.salt},now())     -->
+		insert game_user(id,username, password, phone, no,salt,create_Date) values(#{id},#{username},#{password},#{phone},#{no},#{salt},now())    
+    </insert>
+	<!--登录密码验证  -->
+ 	 <select id="pwdLogin" resultType="GameUser" parameterType="m">
+			select * from game_user
+			where phone=#{phone}  and pwd=#{pwd} and  del_flag='0'
+	</select>
+	 <select id="queryUserCount" resultType="java.lang.Integer" parameterType="m">
+			select count(*) from game_user
+			where phone=#{phone}  and username=#{username} and  del_flag='0'
+	</select>	
+	<!--通过用户名密码获取用户-->
+	<select id="getGameUserBynamepwd" resultType="GameUser" parameterType="m">
+		select * from game_user
+		where (phone=#{username} or username=#{username} ) and password=#{password} and del_flag='0'
+	</select>		
+	<!-- 通过用户名得到盐 -->
+	<select id="getSaltByUsername" resultType="java.lang.String" parameterType="m">
+		select salt from game_user
+		where (phone=#{username} or username=#{username} ) and del_flag='0'
+	</select>	
+	
+	
+	<!-- /获取用户列表数据 -->
+	<select id="getGameUserListdata" resultType="m" parameterType="m">
+		select u.id,u.account,u.nickname,u.phone,u.phone,u.no,u.balance,u.wechat,u.qq,u.alipay,u.account,u.ip,u.agent,
+			u.superiors,u.create_adress,u.status,u.remarks,
+			DATE_FORMAT(u.create_date,'%Y-%m-%d') as create_date
+		from game_user  u
+		<where>
+			u.del_flag=0
+			<if test="username != null and username != ''">  
+	        	AND u.username = #{username}
+	    	</if> 
+			<if test="phone != null and phone != ''">  
+	        	AND u.phone = #{phone}
+	    	</if> 
+	    	<if test="no != null and no != ''">  
+	        	AND u.no like '%${no}%' 
+	    	</if> 
+	    	<if test="wechat != null and wechat != ''">  
+	        	AND u.wechat = #{wechat}
+	    	</if> 
+	    	<if test="alipay != null and alipay != ''">  
+	        	AND u.alipay = #{alipay}
+	    	</if> 
+	    	<if test="qq != null and qq != ''">  
+	        	AND u.qq = #{qq}
+	    	</if> 
+	    	
+	    	<if test="status != null and status != ''">
+	        	AND u.status = #{status}
+	    	</if>
+	    	<if test="startdate != null and startdate != ''">  
+	        	<!--  AND u.create_date &gt;= ${startdate}-->
+	        	AND u.create_date <![CDATA[>=]]> #{startdate}
+	    	</if> 
+	    	<if test="enddate != null and enddate != ''">
+	        	<!--  AND c.create_date &lt;= ${enddate}-->
+	        	AND u.create_date <![CDATA[<=]]> #{enddate}
+	    	</if>
+		</where> 
+    	group by u.id
+    	limit ${page1}  , ${page2}
+	</select>
+	
+		<!-- 获取用户数量 -->
+	<select id="getGameUserListdataCount" resultType="m" parameterType="m">
+		select count(*)
+		from game_user  u
+		<where>
+			u.del_flag=0
+			<if test="username != null and username != ''">  
+	        	AND u.username = #{username}
+	    	</if> 
+			<if test="phone != null and phone != ''">  
+	        	AND u.phone = #{phone}
+	    	</if> 
+	    	<if test="no != null and no != ''">  
+	        	AND u.no like '%${no}%' 
+	    	</if> 
+	    	<if test="wechat != null and wechat != ''">  
+	        	AND u.wechat = #{wechat}
+	    	</if> 
+	    	<if test="alipay != null and alipay != ''">  
+	        	AND u.alipay = #{alipay}
+	    	</if> 
+	    	<if test="qq != null and qq != ''">  
+	        	AND u.qq = #{qq}
+	    	</if> 
+	    	
+	    	<if test="status != null and status != ''">
+	        	AND u.status = #{status}
+	    	</if>
+	    	<if test="startdate != null and startdate != ''">  
+	        	<!--  AND u.create_date &gt;= ${startdate}-->
+	        	AND u.create_date <![CDATA[>=]]> #{startdate}
+	    	</if> 
+	    	<if test="enddate != null and enddate != ''">
+	        	<!--  AND u.create_date &lt;= ${enddate}-->
+	        	AND u.create_date <![CDATA[<=]]> #{enddate}
+	    	</if>
+		</where> 
+    	group by u.id
+    	limit ${page1}  , ${page2}
+	</select>
+	
+	
+	
+	
+	
+	
+	<!-- 	
+	<select id="get" resultType="GameUser">
+		SELECT 
+			<include refid="gameUserColumns"/>
+		FROM game_user a
+		<include refid="gameUserJoins"/>
+		WHERE a.id = #{id}
+		
+		  select * from h_user
+	where username=:m.phone and password=:m.pwd
+    
+	</select>
+  
+	<sql id="gameUserColumns">
+		a.id AS "id",
+		a.username AS "username",
+		a.password AS "password",
+		a.nickname AS "nickname",
+		a.photo AS "photo",
+		a.no AS "no",
+		a.balance AS "balance",
+		a.wechat AS "wechat",
+		a.qq AS "qq",
+		a.account AS "account",
+		a.ip AS "ip",
+		a.agent AS "agent",
+		a.superiors AS "superiors",
+		a.create_adress AS "createAdress",
+		a.status AS "status",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="gameUserJoins">
+	</sql>
+    
+
+	<update id="update">
+		UPDATE game_user SET 	
+			username = #{username},
+			password = #{password},
+			nickname = #{nickname},
+			photo = #{photo},
+			no = #{no},
+			balance = #{balance},
+			wechat = #{wechat},
+			qq = #{qq},
+			account = #{account},
+			ip = #{ip},
+			agent = #{agent},
+			superiors = #{superiors},
+			create_adress = #{createAdress},
+			status = #{status},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE game_user SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update> -->
+	
+</mapper>

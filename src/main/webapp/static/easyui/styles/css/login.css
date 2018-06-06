@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+body,div,span,p,input,h1,h2,h3,h4,ul,li,ol,dl,dd,dt,img{margin:0;padding:0;border:0;list-style:none;}
+body{font-size:12px;font-family:"宋体";background:url(../images/logob_01.png) repeat-x;}
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+
+#login{margin:0 auto; position:relative;}
+
+.login_in{ width:520px; height:320px; background:linear-gradient(#21adfd 0%,#1ea2ef 15%,#148acf 45%,#0e7ab8 70%,#01588b 100%); box-shadow:0 0 20px; color:#2293bd; margin:80px auto; margin-bottom:100px; border-radius:10px; text-align:center; line-height:30px;}
+.login_in h2{margin-top:25px; height:55px; width:100%; display:inline-block; margin-bottom:30px;}
+.login_in span{color:#c1e7fd; font-family:"Microsoft YaHei"; font-size:20px; font-weight:bold;}
+.login_in input{border:1px solid #999; width:180px; height:10px; line-height:30px; padding:10px;}
+.input_i{width:80px; height:53px; float:right; border:0; margin-right:80px; margin-top:25px; display:inline-block; background:url(../images/input_img_04.png) no-repeat;}
+.login_in a:hover{width:80px; height:54px; float:right; border:0; margin-right:80px; margin-top:26px; display:inline-block; background:url(../images/input1.png) no-repeat;}
+#login .img{position:absolute; left:390px; top:325px;}
+.footer{text-align:center; color:#ccc;}
+.welcome{text-align:center; color:#6CF; font-size:18px; margin-top:40px;}

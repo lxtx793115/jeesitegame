@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.plset.dao.PlSetDao">
+    
+	<sql id="plSetColumns">
+		a.id AS "id",
+		a.gameroom_id AS "gameroomId",
+		a.roomnumber AS "roomnumber",
+		a.xiao_pl AS "xiaoPl",
+		a.da_pl AS "daPl",
+		a.dan_pl AS "danPl",
+		a.shuang_pl AS "shuangPl",
+		a.dadan_pl AS "dadanPl",
+		a.dashuang_pl AS "dashuangPl",
+		a.xiaodan_pl AS "xiaodanPl",
+		a.xiaoshuang_pl AS "xiaoshuangPl",
+		a.jida_pl AS "jidaPl",
+		a.jixiao_pl AS "jixiaoPl",
+		a.hongbo_pl AS "hongboPl",
+		a.lanbo_pl AS "lanboPl",
+		a.lvbo_pl AS "lvboPl",
+		a.baizi_pl AS "baiziPl",
+		a.shunzi_pl AS "shunziPl",
+		a.duizi_pl AS "duiziPl",
+		a.tema0_pl AS "tema0Pl",
+		a.tema1_pl AS "tema1Pl",
+		a.tema2_pl AS "tema2Pl",
+		a.tema3_pl AS "tema3Pl",
+		a.tema4_pl AS "tema4Pl",
+		a.tema5_pl AS "tema5Pl",
+		a.tema6_pl AS "tema6Pl",
+		a.tema7_pl AS "tema7Pl",
+		a.tema8_pl AS "tema8Pl",
+		a.tema9_pl AS "tema9Pl",
+		a.tema10_pl AS "tema10Pl",
+		a.tema11_pl AS "tema11Pl",
+		a.tema12_pl AS "tema12Pl",
+		a.tema13_pl AS "tema13Pl",
+		a.tema14_pl AS "tema14Pl",
+		a.tema15_pl AS "tema15Pl",
+		a.tema16_pl AS "tema16Pl",
+		a.tema17_pl AS "tema17Pl",
+		a.tema18_pl AS "tema18Pl",
+		a.tema19_pl AS "tema19Pl",
+		a.tema20_pl AS "tema20Pl",
+		a.tema21_pl AS "tema21Pl",
+		a.tema22_pl AS "tema22Pl",
+		a.tema23_pl AS "tema23Pl",
+		a.tema24_pl AS "tema24Pl",
+		a.tema25_pl AS "tema25Pl",
+		a.tema26_pl AS "tema26Pl",
+		a.tema27_pl AS "tema27Pl"
+	</sql>
+	
+	<sql id="plSetJoins">
+	</sql>
+    
+	<select id="get" resultType="PlSet">
+		SELECT 
+			<include refid="plSetColumns"/>
+		FROM pl_set a
+		<include refid="plSetJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="PlSet">
+		SELECT 
+			<include refid="plSetColumns"/>
+		FROM pl_set a
+		<include refid="plSetJoins"/>
+		<where>
+		    1=1
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="gameroomId != null and gameroomId != ''">
+				AND a.gameroom_id = #{gameroomId}
+			</if>
+			<if test="roomnumber != null and roomnumber != ''">
+				AND a.roomnumber = #{roomnumber}
+			</if>
+			<if test="xiaoPl != null ">
+				AND a.xiao_pl = #{xiaoPl}
+			</if>
+			<if test="daPl != null ">
+				AND a.da_pl = #{daPl}
+			</if>
+			<if test="danPl != null ">
+				AND a.dan_pl = #{danPl}
+			</if>
+			<if test="shuangPl != null ">
+				AND a.shuang_pl = #{shuangPl}
+			</if>
+			<if test="dadanPl != null ">
+				AND a.dadan_pl = #{dadanPl}
+			</if>
+			<if test="dashuangPl != null ">
+				AND a.dashuang_pl = #{dashuangPl}
+			</if>
+			<if test="xiaodanPl != null ">
+				AND a.xiaodan_pl = #{xiaodanPl}
+			</if>
+			<if test="xiaoshuangPl != null ">
+				AND a.xiaoshuang_pl = #{xiaoshuangPl}
+			</if>
+			<if test="jidaPl != null ">
+				AND a.jida_pl = #{jidaPl}
+			</if>
+			<if test="jixiaoPl != null ">
+				AND a.jixiao_pl = #{jixiaoPl}
+			</if>
+			<if test="hongboPl != null ">
+				AND a.hongbo_pl = #{hongboPl}
+			</if>
+			<if test="lanboPl != null ">
+				AND a.lanbo_pl = #{lanboPl}
+			</if>
+			<if test="lvboPl != null ">
+				AND a.lvbo_pl = #{lvboPl}
+			</if>
+			<if test="baiziPl != null ">
+				AND a.baizi_pl = #{baiziPl}
+			</if>
+			<if test="shunziPl != null ">
+				AND a.shunzi_pl = #{shunziPl}
+			</if>
+			<if test="duiziPl != null ">
+				AND a.duizi_pl = #{duiziPl}
+			</if>
+			<if test="tema0Pl != null ">
+				AND a.tema0_pl = #{tema0Pl}
+			</if>
+			<if test="tema1Pl != null ">
+				AND a.tema1_pl = #{tema1Pl}
+			</if>
+			<if test="tema2Pl != null ">
+				AND a.tema2_pl = #{tema2Pl}
+			</if>
+			<if test="tema3Pl != null ">
+				AND a.tema3_pl = #{tema3Pl}
+			</if>
+			<if test="tema4Pl != null ">
+				AND a.tema4_pl = #{tema4Pl}
+			</if>
+			<if test="tema5Pl != null ">
+				AND a.tema5_pl = #{tema5Pl}
+			</if>
+			<if test="tema6Pl != null ">
+				AND a.tema6_pl = #{tema6Pl}
+			</if>
+			<if test="tema7Pl != null ">
+				AND a.tema7_pl = #{tema7Pl}
+			</if>
+			<if test="tema8Pl != null ">
+				AND a.tema8_pl = #{tema8Pl}
+			</if>
+			<if test="tema9Pl != null ">
+				AND a.tema9_pl = #{tema9Pl}
+			</if>
+			<if test="tema10Pl != null ">
+				AND a.tema10_pl = #{tema10Pl}
+			</if>
+			<if test="tema11Pl != null ">
+				AND a.tema11_pl = #{tema11Pl}
+			</if>
+			<if test="tema12Pl != null ">
+				AND a.tema12_pl = #{tema12Pl}
+			</if>
+			<if test="tema13Pl != null ">
+				AND a.tema13_pl = #{tema13Pl}
+			</if>
+			<if test="tema14Pl != null ">
+				AND a.tema14_pl = #{tema14Pl}
+			</if>
+			<if test="tema15Pl != null ">
+				AND a.tema15_pl = #{tema15Pl}
+			</if>
+			<if test="tema16Pl != null ">
+				AND a.tema16_pl = #{tema16Pl}
+			</if>
+			<if test="tema17Pl != null ">
+				AND a.tema17_pl = #{tema17Pl}
+			</if>
+			<if test="tema18Pl != null ">
+				AND a.tema18_pl = #{tema18Pl}
+			</if>
+			<if test="tema19Pl != null ">
+				AND a.tema19_pl = #{tema19Pl}
+			</if>
+			<if test="tema20Pl != null ">
+				AND a.tema20_pl = #{tema20Pl}
+			</if>
+			<if test="tema21Pl != null ">
+				AND a.tema21_pl = #{tema21Pl}
+			</if>
+			<if test="tema22Pl != null ">
+				AND a.tema22_pl = #{tema22Pl}
+			</if>
+			<if test="tema23Pl != null ">
+				AND a.tema23_pl = #{tema23Pl}
+			</if>
+			<if test="tema24Pl != null ">
+				AND a.tema24_pl = #{tema24Pl}
+			</if>
+			<if test="tema25Pl != null ">
+				AND a.tema25_pl = #{tema25Pl}
+			</if>
+			<if test="tema26Pl != null ">
+				AND a.tema26_pl = #{tema26Pl}
+			</if>
+			<if test="tema27Pl != null ">
+				AND a.tema27_pl = #{tema27Pl}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="PlSet">
+		SELECT 
+			<include refid="plSetColumns"/>
+		FROM pl_set a
+		<include refid="plSetJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO pl_set(
+			id,
+			gameroom_id,
+			roomnumber,
+			xiao_pl,
+			da_pl,
+			dan_pl,
+			shuang_pl,
+			dadan_pl,
+			dashuang_pl,
+			xiaodan_pl,
+			xiaoshuang_pl,
+			jida_pl,
+			jixiao_pl,
+			hongbo_pl,
+			lanbo_pl,
+			lvbo_pl,
+			baizi_pl,
+			shunzi_pl,
+			duizi_pl,
+			tema0_pl,
+			tema1_pl,
+			tema2_pl,
+			tema3_pl,
+			tema4_pl,
+			tema5_pl,
+			tema6_pl,
+			tema7_pl,
+			tema8_pl,
+			tema9_pl,
+			tema10_pl,
+			tema11_pl,
+			tema12_pl,
+			tema13_pl,
+			tema14_pl,
+			tema15_pl,
+			tema16_pl,
+			tema17_pl,
+			tema18_pl,
+			tema19_pl,
+			tema20_pl,
+			tema21_pl,
+			tema22_pl,
+			tema23_pl,
+			tema24_pl,
+			tema25_pl,
+			tema26_pl,
+			tema27_pl
+		) VALUES (
+			#{id},
+			#{gameroomId},
+			#{roomnumber},
+			#{xiaoPl},
+			#{daPl},
+			#{danPl},
+			#{shuangPl},
+			#{dadanPl},
+			#{dashuangPl},
+			#{xiaodanPl},
+			#{xiaoshuangPl},
+			#{jidaPl},
+			#{jixiaoPl},
+			#{hongboPl},
+			#{lanboPl},
+			#{lvboPl},
+			#{baiziPl},
+			#{shunziPl},
+			#{duiziPl},
+			#{tema0Pl},
+			#{tema1Pl},
+			#{tema2Pl},
+			#{tema3Pl},
+			#{tema4Pl},
+			#{tema5Pl},
+			#{tema6Pl},
+			#{tema7Pl},
+			#{tema8Pl},
+			#{tema9Pl},
+			#{tema10Pl},
+			#{tema11Pl},
+			#{tema12Pl},
+			#{tema13Pl},
+			#{tema14Pl},
+			#{tema15Pl},
+			#{tema16Pl},
+			#{tema17Pl},
+			#{tema18Pl},
+			#{tema19Pl},
+			#{tema20Pl},
+			#{tema21Pl},
+			#{tema22Pl},
+			#{tema23Pl},
+			#{tema24Pl},
+			#{tema25Pl},
+			#{tema26Pl},
+			#{tema27Pl}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE pl_set SET 	
+			gameroom_id = #{gameroomId},
+			roomnumber = #{roomnumber},
+			xiao_pl = #{xiaoPl},
+			da_pl = #{daPl},
+			dan_pl = #{danPl},
+			shuang_pl = #{shuangPl},
+			dadan_pl = #{dadanPl},
+			dashuang_pl = #{dashuangPl},
+			xiaodan_pl = #{xiaodanPl},
+			xiaoshuang_pl = #{xiaoshuangPl},
+			jida_pl = #{jidaPl},
+			jixiao_pl = #{jixiaoPl},
+			hongbo_pl = #{hongboPl},
+			lanbo_pl = #{lanboPl},
+			lvbo_pl = #{lvboPl},
+			baizi_pl = #{baiziPl},
+			shunzi_pl = #{shunziPl},
+			duizi_pl = #{duiziPl},
+			tema0_pl = #{tema0Pl},
+			tema1_pl = #{tema1Pl},
+			tema2_pl = #{tema2Pl},
+			tema3_pl = #{tema3Pl},
+			tema4_pl = #{tema4Pl},
+			tema5_pl = #{tema5Pl},
+			tema6_pl = #{tema6Pl},
+			tema7_pl = #{tema7Pl},
+			tema8_pl = #{tema8Pl},
+			tema9_pl = #{tema9Pl},
+			tema10_pl = #{tema10Pl},
+			tema11_pl = #{tema11Pl},
+			tema12_pl = #{tema12Pl},
+			tema13_pl = #{tema13Pl},
+			tema14_pl = #{tema14Pl},
+			tema15_pl = #{tema15Pl},
+			tema16_pl = #{tema16Pl},
+			tema17_pl = #{tema17Pl},
+			tema18_pl = #{tema18Pl},
+			tema19_pl = #{tema19Pl},
+			tema20_pl = #{tema20Pl},
+			tema21_pl = #{tema21Pl},
+			tema22_pl = #{tema22Pl},
+			tema23_pl = #{tema23Pl},
+			tema24_pl = #{tema24Pl},
+			tema25_pl = #{tema25Pl},
+			tema26_pl = #{tema26Pl},
+			tema27_pl = #{tema27Pl}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM pl_set
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.gameuserrank.dao.GameUserAccountDao">
+    
+	<sql id="gameUserAccountColumns">
+		a.id AS "id",
+		a.account_no AS "accountNo",
+		a.account_type AS "accountType",
+		a.account_detail AS "accountDetail",
+		a.account_address AS "accountAddress",
+		a.bankname AS "bankname",
+		@rownum:=@rownum+1 AS "rownum"
+	</sql>
+	
+	<sql id="gameUserAccountJoins">
+	    ,(select @rownum:=0) t
+	</sql>
+    
+	<select id="get" resultType="GameUserAccount">
+		SELECT 
+			<include refid="gameUserAccountColumns"/>
+		FROM game_user_account a
+		<include refid="gameUserAccountJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="GameUserAccount">
+		SELECT 
+			<include refid="gameUserAccountColumns"/>
+		FROM game_user_account a
+		<include refid="gameUserAccountJoins"/>
+		<where>
+			
+			<if test="accountNo != null and accountNo != ''">
+				AND a.account_no = #{accountNo}
+			</if>
+			<if test="accountAddress != null and accountAddress != ''">
+				AND a.account_address LIKE 
+					<if test="dbName == 'oracle'">'%'||#{accountAddress}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{accountAddress}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{accountAddress},'%')</if>
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="GameUserAccount">
+		SELECT 
+			<include refid="gameUserAccountColumns"/>
+		FROM game_user_account a
+		<include refid="gameUserAccountJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO game_user_account(
+			id,
+			account_no,
+			account_type,
+			account_detail,
+			account_address,
+			bankname,
+			create_date
+		) VALUES (
+			#{id},
+			#{accountNo},
+			#{accountType},
+			#{accountDetail},
+			#{accountAddress},
+			#{bankname},
+			#{createDate}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE game_user_account SET 	
+			account_no = #{accountNo},
+			account_type = #{accountType},
+			account_detail = #{accountDetail},
+			account_address = #{accountAddress},
+			bankname = #{bankname}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM game_user_account
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

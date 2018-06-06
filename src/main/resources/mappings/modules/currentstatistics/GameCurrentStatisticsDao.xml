@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.currentstatistics.dao.GameCurrentStatisticsDao">
+    
+	<sql id="gameCurrentStatisticsColumns">
+		a.id AS "id",
+		a.gameroom_id AS "gameroomId",
+		a.roomnumber AS "roomnumber",
+		a.roomname AS "roomname",
+		a.da AS "da",
+		a.dan AS "dan",
+		a.shuang AS "shuang",
+		a.xiao AS "xiao",
+		a.dadan AS "dadan",
+		a.dashuang AS "dashuang",
+		a.xiaodan AS "xiaodan",
+		a.xiaoshuang AS "xiaoshuang",
+		a.jida AS "jida",
+		a.jixiao AS "jixiao",
+		a.hongbo AS "hongbo",
+		a.lanbo AS "lanbo",
+		a.lvbo AS "lvbo",
+		a.baizi AS "baizi",
+		a.shunzi AS "shunzi",
+		a.duizi AS "duizi",
+		a.tema0 AS "tema0",
+		a.tema1 AS "tema1",
+		a.tema2 AS "tema2",
+		a.tema3 AS "tema3",
+		a.tema4 AS "tema4",
+		a.tema5 AS "tema5",
+		a.tema6 AS "tema6",
+		a.tema7 AS "tema7",
+		a.tema8 AS "tema8",
+		a.tema9 AS "tema9",
+		a.tema10 AS "tema10",
+		a.tema11 AS "tema11",
+		a.tema12 AS "tema12",
+		a.tema13 AS "tema13",
+		a.tema14 AS "tema14",
+		a.tema15 AS "tema15",
+		a.tema16 AS "tema16",
+		a.tema17 AS "tema17",
+		a.tema18 AS "tema18",
+		a.tema19 AS "tema19",
+		a.tema20 AS "tema20",
+		a.tema21 AS "tema21",
+		a.tema22 AS "tema22",
+		a.tema23 AS "tema23",
+		a.tema24 AS "tema24",
+		a.tema25 AS "tema25",
+		a.tema26 AS "tema26",
+		a.tema27 AS "tema27"
+	</sql>
+	
+	<sql id="gameCurrentStatisticsJoins">
+	</sql>
+    
+	<select id="get" resultType="GameCurrentStatistics">
+		SELECT 
+			<include refid="gameCurrentStatisticsColumns"/>
+		FROM game_current_statistics a
+		<include refid="gameCurrentStatisticsJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="GameCurrentStatistics">
+		SELECT 
+			<include refid="gameCurrentStatisticsColumns"/>
+		FROM game_current_statistics a
+		<include refid="gameCurrentStatisticsJoins"/>
+		<where>
+			
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="gameroomId != null and gameroomId != ''">
+				AND a.gameroom_id = #{gameroomId}
+			</if>
+			<if test="roomnumber != null and roomnumber != ''">
+				AND a.roomnumber = #{roomnumber}
+			</if>
+			<if test="roomname != null and roomname != ''">
+				AND a.roomname = #{roomname}
+			</if>
+			<if test="da != null and da != ''">
+				AND a.da = #{da}
+			</if>
+			<if test="dan != null and dan != ''">
+				AND a.dan = #{dan}
+			</if>
+			<if test="shuang != null and shuang != ''">
+				AND a.shuang = #{shuang}
+			</if>
+			<if test="xiao != null and xiao != ''">
+				AND a.xiao = #{xiao}
+			</if>
+			<if test="dadan != null and dadan != ''">
+				AND a.dadan = #{dadan}
+			</if>
+			<if test="dashuang != null and dashuang != ''">
+				AND a.dashuang = #{dashuang}
+			</if>
+			<if test="xiaodan != null and xiaodan != ''">
+				AND a.xiaodan = #{xiaodan}
+			</if>
+			<if test="xiaoshuang != null and xiaoshuang != ''">
+				AND a.xiaoshuang = #{xiaoshuang}
+			</if>
+			<if test="jida != null and jida != ''">
+				AND a.jida = #{jida}
+			</if>
+			<if test="jixiao != null and jixiao != ''">
+				AND a.jixiao = #{jixiao}
+			</if>
+			<if test="hongbo != null and hongbo != ''">
+				AND a.hongbo = #{hongbo}
+			</if>
+			<if test="lanbo != null and lanbo != ''">
+				AND a.lanbo = #{lanbo}
+			</if>
+			<if test="lvbo != null and lvbo != ''">
+				AND a.lvbo = #{lvbo}
+			</if>
+			<if test="baizi != null and baizi != ''">
+				AND a.baizi = #{baizi}
+			</if>
+			<if test="shunzi != null and shunzi != ''">
+				AND a.shunzi = #{shunzi}
+			</if>
+			<if test="duizi != null and duizi != ''">
+				AND a.duizi = #{duizi}
+			</if>
+			<if test="tema0 != null and tema0 != ''">
+				AND a.tema0 = #{tema0}
+			</if>
+			<if test="tema1 != null and tema1 != ''">
+				AND a.tema1 = #{tema1}
+			</if>
+			<if test="tema2 != null and tema2 != ''">
+				AND a.tema2 = #{tema2}
+			</if>
+			<if test="tema3 != null and tema3 != ''">
+				AND a.tema3 = #{tema3}
+			</if>
+			<if test="tema4 != null and tema4 != ''">
+				AND a.tema4 = #{tema4}
+			</if>
+			<if test="tema5 != null and tema5 != ''">
+				AND a.tema5 = #{tema5}
+			</if>
+			<if test="tema6 != null and tema6 != ''">
+				AND a.tema6 = #{tema6}
+			</if>
+			<if test="tema7 != null and tema7 != ''">
+				AND a.tema7 = #{tema7}
+			</if>
+			<if test="tema8 != null and tema8 != ''">
+				AND a.tema8 = #{tema8}
+			</if>
+			<if test="tema9 != null and tema9 != ''">
+				AND a.tema9 = #{tema9}
+			</if>
+			<if test="tema10 != null and tema10 != ''">
+				AND a.tema10 = #{tema10}
+			</if>
+			<if test="tema11 != null and tema11 != ''">
+				AND a.tema11 = #{tema11}
+			</if>
+			<if test="tema12 != null and tema12 != ''">
+				AND a.tema12 = #{tema12}
+			</if>
+			<if test="tema13 != null and tema13 != ''">
+				AND a.tema13 = #{tema13}
+			</if>
+			<if test="tema14 != null and tema14 != ''">
+				AND a.tema14 = #{tema14}
+			</if>
+			<if test="tema15 != null and tema15 != ''">
+				AND a.tema15 = #{tema15}
+			</if>
+			<if test="tema16 != null and tema16 != ''">
+				AND a.tema16 = #{tema16}
+			</if>
+			<if test="tema17 != null and tema17 != ''">
+				AND a.tema17 = #{tema17}
+			</if>
+			<if test="tema18 != null and tema18 != ''">
+				AND a.tema18 = #{tema18}
+			</if>
+			<if test="tema19 != null and tema19 != ''">
+				AND a.tema19 = #{tema19}
+			</if>
+			<if test="tema20 != null and tema20 != ''">
+				AND a.tema20 = #{tema20}
+			</if>
+			<if test="tema21 != null and tema21 != ''">
+				AND a.tema21 = #{tema21}
+			</if>
+			<if test="tema22 != null and tema22 != ''">
+				AND a.tema22 = #{tema22}
+			</if>
+			<if test="tema23 != null and tema23 != ''">
+				AND a.tema23 = #{tema23}
+			</if>
+			<if test="tema24 != null and tema24 != ''">
+				AND a.tema24 = #{tema24}
+			</if>
+			<if test="tema25 != null and tema25 != ''">
+				AND a.tema25 = #{tema25}
+			</if>
+			<if test="tema26 != null and tema26 != ''">
+				AND a.tema26 = #{tema26}
+			</if>
+			<if test="tema27 != null and tema27 != ''">
+				AND a.tema27 = #{tema27}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="GameCurrentStatistics">
+		SELECT 
+			<include refid="gameCurrentStatisticsColumns"/>
+		FROM game_current_statistics a
+		<include refid="gameCurrentStatisticsJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO game_current_statistics(
+			id,
+			gameroom_id,
+			roomnumber,
+			roomname,
+			da,
+			dan,
+			shuang,
+			xiao,
+			dadan,
+			dashuang,
+			xiaodan,
+			xiaoshuang,
+			jida,
+			jixiao,
+			hongbo,
+			lanbo,
+			lvbo,
+			baizi,
+			shunzi,
+			duizi,
+			tema0,
+			tema1,
+			tema2,
+			tema3,
+			tema4,
+			tema5,
+			tema6,
+			tema7,
+			tema8,
+			tema9,
+			tema10,
+			tema11,
+			tema12,
+			tema13,
+			tema14,
+			tema15,
+			tema16,
+			tema17,
+			tema18,
+			tema19,
+			tema20,
+			tema21,
+			tema22,
+			tema23,
+			tema24,
+			tema25,
+			tema26,
+			tema27
+		) VALUES (
+			#{id},
+			#{gameroomId},
+			#{roomnumber},
+			#{roomname},
+			#{da},
+			#{dan},
+			#{shuang},
+			#{xiao},
+			#{dadan},
+			#{dashuang},
+			#{xiaodan},
+			#{xiaoshuang},
+			#{jida},
+			#{jixiao},
+			#{hongbo},
+			#{lanbo},
+			#{lvbo},
+			#{baizi},
+			#{shunzi},
+			#{duizi},
+			#{tema0},
+			#{tema1},
+			#{tema2},
+			#{tema3},
+			#{tema4},
+			#{tema5},
+			#{tema6},
+			#{tema7},
+			#{tema8},
+			#{tema9},
+			#{tema10},
+			#{tema11},
+			#{tema12},
+			#{tema13},
+			#{tema14},
+			#{tema15},
+			#{tema16},
+			#{tema17},
+			#{tema18},
+			#{tema19},
+			#{tema20},
+			#{tema21},
+			#{tema22},
+			#{tema23},
+			#{tema24},
+			#{tema25},
+			#{tema26},
+			#{tema27}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE game_current_statistics SET 	
+			gameroom_id = #{gameroomId},
+			roomnumber = #{roomnumber},
+			roomname = #{roomname},
+			da = #{da},
+			dan = #{dan},
+			shuang = #{shuang},
+			xiao = #{xiao},
+			dadan = #{dadan},
+			dashuang = #{dashuang},
+			xiaodan = #{xiaodan},
+			xiaoshuang = #{xiaoshuang},
+			jida = #{jida},
+			jixiao = #{jixiao},
+			hongbo = #{hongbo},
+			lanbo = #{lanbo},
+			lvbo = #{lvbo},
+			baizi = #{baizi},
+			shunzi = #{shunzi},
+			duizi = #{duizi},
+			tema0 = #{tema0},
+			tema1 = #{tema1},
+			tema2 = #{tema2},
+			tema3 = #{tema3},
+			tema4 = #{tema4},
+			tema5 = #{tema5},
+			tema6 = #{tema6},
+			tema7 = #{tema7},
+			tema8 = #{tema8},
+			tema9 = #{tema9},
+			tema10 = #{tema10},
+			tema11 = #{tema11},
+			tema12 = #{tema12},
+			tema13 = #{tema13},
+			tema14 = #{tema14},
+			tema15 = #{tema15},
+			tema16 = #{tema16},
+			tema17 = #{tema17},
+			tema18 = #{tema18},
+			tema19 = #{tema19},
+			tema20 = #{tema20},
+			tema21 = #{tema21},
+			tema22 = #{tema22},
+			tema23 = #{tema23},
+			tema24 = #{tema24},
+			tema25 = #{tema25},
+			tema26 = #{tema26},
+			tema27 = #{tema27}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM game_current_statistics
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

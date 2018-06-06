@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.awarddetailreport.dao.AwardDetailedReportDao">
+    
+	<sql id="awardDetailedReportColumns">
+		a.id AS "id",
+		a.award_manage_id AS "awardManageId",
+		a.reportnumber AS "reportnumber",
+		a.account_number AS "accountNumber",
+		a.bets_detail AS "betsDetail",
+		a.total_amount_bets AS "totalAmountBets",
+		a.bets_time AS "betsTime",
+		a.award_results AS "awardResults",
+		a.player_win_loss AS "playerWinLoss",
+		a.status AS "status"
+	</sql>
+	
+	<sql id="awardDetailedReportJoins">
+	</sql>
+    
+	<select id="get" resultType="AwardDetailedReport">
+		SELECT 
+			<include refid="awardDetailedReportColumns"/>
+		FROM award_detailed_report a
+		<include refid="awardDetailedReportJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="AwardDetailedReport">
+		SELECT 
+			<include refid="awardDetailedReportColumns"/>
+		FROM award_detailed_report a
+		<include refid="awardDetailedReportJoins"/>
+		<where>
+			
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="awardManageId != null and awardManageId != ''">
+				AND a.award_manage_id = #{awardManageId}
+			</if>
+			<if test="reportnumber != null and reportnumber != ''">
+				AND a.reportnumber = #{reportnumber}
+			</if>
+			<if test="accountNumber != null and accountNumber != ''">
+				AND a.account_number = #{accountNumber}
+			</if>
+			<if test="betsDetail != null and betsDetail != ''">
+				AND a.bets_detail = #{betsDetail}
+			</if>
+			<if test="totalAmountBets != null and totalAmountBets != ''">
+				AND a.total_amount_bets = #{totalAmountBets}
+			</if>
+			<if test="betsTime != null and betsTime != ''">
+				AND a.bets_time = #{betsTime}
+			</if>
+			<if test="awardResults != null and awardResults != ''">
+				AND a.award_results = #{awardResults}
+			</if>
+			<if test="playerWinLoss != null and playerWinLoss != ''">
+				AND a.player_win_loss = #{playerWinLoss}
+			</if>
+			<if test="status != null and status != ''">
+				AND a.status = #{status}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="AwardDetailedReport">
+		SELECT 
+			<include refid="awardDetailedReportColumns"/>
+		FROM award_detailed_report a
+		<include refid="awardDetailedReportJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO award_detailed_report(
+			id,
+			award_manage_id,
+			reportnumber,
+			account_number,
+			bets_detail,
+			total_amount_bets,
+			bets_time,
+			award_results,
+			player_win_loss,
+			status
+		) VALUES (
+			#{id},
+			#{awardManageId},
+			#{reportnumber},
+			#{accountNumber},
+			#{betsDetail},
+			#{totalAmountBets},
+			#{betsTime},
+			#{awardResults},
+			#{playerWinLoss},
+			#{status}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE award_detailed_report SET 	
+			award_manage_id = #{awardManageId},
+			reportnumber = #{reportnumber},
+			account_number = #{accountNumber},
+			bets_detail = #{betsDetail},
+			total_amount_bets = #{totalAmountBets},
+			bets_time = #{betsTime},
+			award_results = #{awardResults},
+			player_win_loss = #{playerWinLoss},
+			status = #{status}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM award_detailed_report
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

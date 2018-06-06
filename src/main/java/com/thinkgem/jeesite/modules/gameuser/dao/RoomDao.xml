@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.gameuser.dao.RoomDao">
+	<!--插入房间 -->
+	<insert id="createRoom" parameterType="m">
+		insert game_room(id,no,name,create_Date) values(#{id},#{no},#{name},now());
+    </insert>
+	<select id="queryRoomNameCount" resultType="java.lang.Integer" parameterType="m">
+		select count(*) from game_room where name=#{name}
+	</select>
+
+	<select id="queryRoomCount" resultType="java.lang.Integer">
+		select count(*) from game_room
+	</select>
+
+	<select id="queryRoomList" resultType="com.thinkgem.jeesite.modules.gameroom.entity.GameRoom">
+		SELECT
+	    id,
+	    NO,
+	    NAME,
+	    robot_name robotName,
+	    guess_flag guessFlag,
+	    open_flag openFlag,
+	    count,
+	    roomnumber,
+	    room_icon roomIcon,
+	    guess_flag_context guessFlagContext,
+	    open_chat openChat,
+	    open_chat_context open_chat_context,
+	    room_lottery_ticket_type,
+	    room_lottery_ticket_type_context roomLotteryTicketTypeContext
+        FROM game_room
+		limit #{start},#{size}
+	</select>
+	
+	
+	
+	<select id="queryRoomByRoomNo" resultType="com.thinkgem.jeesite.modules.gameroom.entity.GameRoom">
+	SELECT
+	NO,
+	NAME,
+	robot_name robotName,
+	guess_flag guessFlag,
+	open_flag openFlag,
+	count,
+	create_by createBy,
+	create_date createDate,
+	update_by updateBy,
+	update_date updateDate,
+	remarks
+    FROM
+	game_room
+	where roomnumber=#{roomnumber}
+	</select>
+	
+	
+	
+</mapper>

@@ -1,0 +1,1681 @@
+.laydate-icon,
+.laydate_body .laydate_bottom #laydate_hms,
+.laydate_body .laydate_time {
+	border: 1px solid #ccc
+}
+
+#MZGHFDIV .firstTable thead tr:after,
+#MZGHFDIVMain:after,
+ul.drug-stats:after {
+	content: ""
+}
+
+.laydate-icon {
+	background-image: url(icon.png)
+}
+
+.laydate_body .laydate_box,
+.laydate_body .laydate_time,
+.laydate_body .laydate_ym .laydate_yms {
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, .1)
+}
+
+.laydate_body .laydate_box {
+	border-top: none;
+	border-bottom: none;
+	background-color: #fff;
+	color: #00625A
+}
+
+.laydate_body .laydate_ym,
+.laydate_body .laydate_ym .laydate_yms {
+	border: 1px solid #1ed372;
+	background-color: #1ed372
+}
+
+.laydate_body .laydate_box input {
+	background: 0 0!important;
+	color: #fff
+}
+
+.laydate_body .laydate_box .laydate_void {
+	color: #ccc!important
+}
+
+.laydate_body .laydate_box a,
+.laydate_body .laydate_box a:hover {
+	color: #00625A
+}
+
+.laydate_body .laydate_box a:hover {
+	color: #666
+}
+
+.laydate_body .laydate_click {
+	background-color: #1ed372!important;
+	color: #fff!important
+}
+
+.laydate_body .laydate_top {
+	border-top: 1px solid #1ed372;
+	background-color: #1ed372
+}
+
+.laydate_body .laydate_ym .laydate_yms {
+	color: #fff
+}
+
+.laydate_body .laydate_y .laydate_yms a {
+	border-bottom: 1px solid #1ed372
+}
+
+.laydate_body .laydate_y .laydate_yms .laydate_chdown {
+	border-top: 1px solid #1ed372;
+	border-bottom: none
+}
+
+.laydate_body .laydate_choose {
+	border-left: 1px solid #1ed372
+}
+
+.laydate_body .laydate_chprev {
+	border-left: none;
+	border-right: 1px solid #1ed372
+}
+
+.laydate_body .laydate_choose:hover,
+.laydate_body .laydate_y .laydate_yms a:hover {
+	background-color: #00C1B3
+}
+
+.laydate_body .laydate_chtop cite {
+	border-bottom-color: #fff
+}
+
+.laydate_body .laydate_chdown cite,
+.laydate_body .laydate_ym label {
+	border-top-color: #fff
+}
+
+.laydate_body .laydate_chprev cite {
+	border-right-style: solid;
+	border-right-color: #fff
+}
+
+.laydate_body .laydate_chnext cite {
+	border-left-style: solid;
+	border-left-color: #fff
+}
+
+.laydate_body .laydate_table {
+	width: 240px!important;
+	margin: 0!important;
+	border: 1px solid #ccc;
+	border-top: none;
+	border-bottom: none
+}
+
+.laydate_body .laydate_table td {
+	border: none;
+	height: 21px!important;
+	line-height: 21px!important;
+	background-color: #fff;
+	color: #00625A
+}
+
+.laydate_body .laydate_table .laydate_nothis {
+	color: #999
+}
+
+.laydate_body .laydate_table thead {
+	border-bottom: 1px solid #ccc;
+	height: 21px!important;
+	line-height: 21px!important
+}
+
+.laydate_body .laydate_bottom {
+	border: 1px solid #ccc;
+	border-top: none
+}
+
+.laydate_body .laydate_bottom #laydate_hms,
+.laydate_body .laydate_time {
+	background-color: #fff
+}
+
+.laydate_body .laydate_time1 {
+	width: 226px!important;
+	height: 152px!important
+}
+
+.laydate_body .laydate_bottom .laydate_sj {
+	width: 31px!important;
+	border-right: 1px solid #ccc;
+	background-color: #fff
+}
+
+.laydate_body .laydate_bottom input {
+	background-color: #fff;
+	color: #00625A
+}
+
+.laydate_body .laydate_bottom .laydte_hsmtex {
+	border-bottom: 1px solid #ccc
+}
+
+.laydate_body .laydate_bottom .laydate_btn {
+	border-right: 1px solid #ccc
+}
+
+.laydate_body .laydate_bottom .laydate_v {
+	color: #999
+}
+
+.laydate_body .laydate_bottom .laydate_btn a {
+	border: 1px solid #ccc;
+	border-right: none;
+	background-color: #fff
+}
+
+.laydate_body .laydate_bottom .laydate_btn a:hover {
+	background-color: #F6F6F6;
+	color: #00625A
+}
+
+.laydate_body .laydate_m .laydate_yms span:hover,
+.laydate_body .laydate_table td:hover,
+.laydate_body .laydate_time .laydate_hmsno span:hover,
+.laydate_body .laydate_y .laydate_yms ul li:hover {
+	background-color: #00C1B3;
+	color: #fff
+}
+
+.drug-stats {
+	position: relative;
+	top: 8px;
+	width: 100%;
+	padding: 0 10px;
+	color: #aaa
+}
+
+#registeredWrap,
+#registereseach_wrap,
+.registereseach_list,
+.registereseach_max,
+.registereseach_xiangxi {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0
+}
+
+ul.drug-stats:after {
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden
+}
+
+.drug-stats li {
+	margin-right: 35px;
+	float: left;
+	font-size: 12px
+}
+
+.mk-input-group-sigle .mk-input-tail,
+.mk-input-group-sigle .mk-input-title {
+	font-size: 14px;
+	color: #666;
+	border-right: 1px solid #e3e1e1;
+	padding: 0 8px;
+	line-height: 26px;
+	text-align: center
+}
+
+.btn-drugadd {
+	width: 240px;
+	margin: auto
+}
+
+.select-con,
+.select-con select,
+.select-con span {
+	display: inline-block;
+	width: 230px
+}
+
+.mk-input-group-sigle {
+	border: 1px solid #e3e1e1;
+	border-radius: 3px;
+	height: 28px
+}
+
+.mk-input-group-sigle .mk-input-title {
+	background: #eee;
+	width: 64px;
+	height: 26px
+}
+
+.mk-input-group-sigle .mk-input-tail {
+	background: #fff;
+	width: 43px;
+	height: 26px;
+	border-left: 1px solid #e3e1e1;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: inline-block
+}
+
+.mk-input-group-multi .mk-input-title .mk-input-require,
+.mk-input-group-sigle .mk-input-title .mk-input-require {
+	color: #eb5c3a;
+	font-size: large
+}
+
+.mk-input-group-sigle input {
+	border: none;
+	background-color: #fafafa;
+	height: 26px;
+	line-height: 26px;
+	padding: 0 8px;
+	width: 61px
+}
+
+.mk-input-group-multi .mk-input-title {
+	color: #838383;
+	line-height: 26px
+}
+
+.mk-input-group-multi input {
+	border-radius: 3px;
+	background-color: #fff;
+	border: 1px solid #e3e1e1;
+	height: 26px;
+	text-indent: 5px
+}
+
+.mk-input-group-multi select {
+	border-radius: 3px;
+	height: 28px
+}
+
+.content .add-drug-content {
+	background-color: #fff;
+	padding: 22px
+}
+
+.add-drug-content .add-drug-head {
+	height: 56px
+}
+
+.add-drug-content .add-drug-head .btnback {
+	width: 100px
+}
+
+.add-drug-content .add-drug-head .prescriptioncatetab {
+	height: 28px
+}
+
+.add-drug-content .add-drug-head .prescriptioncatetab .btn-tab {
+	width: 85px;
+	height: 27px;
+	background-color: #eee;
+	border: 1px solid #d2d2d2;
+	border-right: none
+}
+
+.add-drug-content .add-drug-head .prescriptioncatetab .btn-tab.active {
+	background-color: #1fd273;
+	color: #fff
+}
+
+.add-drug-content .add-drug-head .prescriptioncatetab .btn-tab:nth-child(1) {
+	border-radius: 3px
+}
+
+.add-drug-content .add-drug-head .prescriptioncatetab .btn-tab:nth-last-child(1) {
+	border-right: 1px solid #d2d2d2;
+	border-radius: 3px
+}
+
+.add-drug-content .add-drug-head .add-drug-nav {
+	height: 28px
+}
+
+.add-drug-content .btn-save .mk-btn-primary {
+	background-color: #1fd273;
+	border-radius: 3px;
+	width: 84px;
+	height: 30px;
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	font-size: 14px
+}
+
+.add-drug-content .add-drug-head .btn-save .mk-btn-primary:hover {
+	background-color: #19b663
+}
+
+.add-drug-content .add-drug-body .drug-info-partial {
+	padding: 4px 0 0 68px;
+	margin-top: 24px
+}
+
+.add-drug-content .add-drug-body .drug-info-partial .drug-info-partial-title {
+	margin-bottom: 12px;
+	color: #1ab060
+}
+
+.add-drug-content .add-drug-body .drug-info-partial.druginfo-basic {
+	background: url(../../../images/drug-partial-name.png) no-repeat
+}
+
+.add-drug-content .add-drug-body .drug-info-partial.druginfo-spec {
+	background: url(../../../images/drug-partial-spec.png) no-repeat
+}
+
+.add-drug-content .add-drug-body .drug-info-partial.druginfo-effect {
+	background: url(../../../images/drug-partial-effect.png) no-repeat
+}
+
+.add-drug-content .add-drug-body .drug-info-partial.druginfo-other {
+	background: url(../../../images/drug-partial-other.png) no-repeat
+}
+
+.add-drug-content .add-drug-body .drug-info-partial .drug-info-partial-form {
+	margin: 6px 0
+}
+
+.add-drug-content .add-drug-body .drug-info-partial .drug-info-partial-form-spec {
+	border: 1px solid #e5e5e5;
+	padding: 15px
+}
+
+.add-drug-content .add-drug-body .drug-info-partial .drug-info-partial-form-spec .drug-field {
+	margin: 0 4px
+}
+
+.add-drug-content .add-drug-body .drug-info-partial .drug-info-partial-form-spec>section>span {
+	color: #838383;
+	line-height: 26px
+}
+
+.add-drug-content .add-drug-body .drug-field {
+	margin-right: 24px;
+	margin-top: 10px
+}
+
+.import_drugs_bj {
+	min-width: 900px;
+	height: 496px
+}
+
+.import_drugs_bj .pull-right {
+	margin-top: 7px
+}
+
+.import_drugs_bj .druglist:hover {
+	background-color: #d2d2d2
+}
+
+.drug-field .drug-name {
+	border: none;
+	height: 24px;
+	background-color: #fafafa;
+	min-width: 0
+}
+
+.drug-field .drug-name:focus {
+	background-color: #fff
+}
+
+.drug-field .drug-name md-autocomplete-wrap {
+	height: 26px;
+	box-shadow: none
+}
+
+.drug-field .drug-name input {
+	height: 26px;
+	font-size: 14px;
+	line-height: 26px;
+	padding: 0 8px;
+	width: 154px
+}
+
+.drug-field .drug-name button {
+	display: none
+}
+
+.drug-list li:first-child {
+	background: #eee;
+	border-radius: 3px
+}
+
+.isuing,
+.isuing input {
+	background-color: #bfe8ea!important
+}
+
+.drug-list-content-height li {
+	height: 30px;
+	line-height: 30px
+}
+
+.empty-drug-array_menu {
+	margin-top: 50px
+}
+
+.drug-select-width {
+	width: 232px
+}
+
+.drug-select-width .mk-input-title {
+	width: 65px
+}
+
+.diy-input-select-adddrug {
+	width: 464px
+}
+
+.diy-mk-input-select-unit {
+	width: 142px
+}
+
+.isuing {
+	border: 1px solid #1fd273!important
+}
+
+.p_system_content .info_check ul li .inputContent input {
+	width: 16%;
+	border: none;
+	border-bottom: 1px dashed #d2d2d2;
+	margin-top: 0;
+	height: 16px;
+	line-height: 16px
+}
+
+.p_system_content .info_check ul li .inputContent input:focus {
+	border-width: 1px
+}
+
+.p_system_content .info_check ul li .inputContent input:nth-child(1) {
+	width: 30%
+}
+
+.p_system_content .info_check ul li:nth-child(7),
+.p_system_content .info_check ul li:nth-child(8),
+.p_system_content .info_check ul li:nth-child(9) {
+	width: 5%
+}
+
+.p_system_content .info_check ul li:nth-child(10) {
+	width: 10%
+}
+
+.p_system_content .info_check ul li:nth-child(11) {
+	width: 11%
+}
+
+.p_system_content .info_check ul li:nth-child(15) {
+	width: 5%
+}
+.ProductionDate,
+.ValidityPeriod {
+	width: 100%
+}
+ .inputContent {
+	margin-top: 0
+}
+
+.inputContent input {
+	width: 16%;
+	border: none;
+	border: 1px solid #d2d2d2;
+	margin-top: 0;
+	height: 20px;
+	line-height: 20px
+}
+
+.inputContent input:focus {
+	border-width: 1px
+}
+
+.inputContent input:nth-child(1) {
+	width: 30%
+}
+
+.inputContent {
+	height: 20px;
+	line-height: 20px;
+	/*margin-top: 7px;
+	background-color: #eee*/
+}
+
+#registeredWrap,
+#registereseach_wrap {
+	margin: 11px 4px 4px;
+	padding: 0;
+	overflow: auto
+}
+
+#registeredWrap {
+	min-width: 1121px
+}
+
+#registereseach_wrap {
+	margin-top: 4px;
+	padding: 20px
+}
+
+.registereseach_list {
+	padding: 20px;
+	background-color: #fff
+}
+
+.registeredPrint_warp {
+	width: 13cm;
+	height: 11cm;
+	position: fixed;
+	left: 37%;
+	top: 27%;
+	z-index: 999;
+	border: 4px solid #eee;
+	box-sizing: border-box;
+	background-color: #f3f5f4;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .2)
+}
+
+#prescription_Wrap {
+	display: block;
+	width: 0;
+	height: 0;
+	padding: 0!important;
+	margin: 0
+}
+
+.registeredPrint_content {
+	width: 12cm;
+	min-height: 8cm;
+	background-color: #fff;
+	margin: 10px auto 0;
+	padding: 12px;
+	position: relative;
+	box-sizing: border-box
+}
+
+.registeredPrint_content .drugeChargePrint_mians p:nth-child(1),
+.registeredPrint_content .drugeChargePrint_mians p:nth-child(2),
+.registeredPrint_content .drugeChargePrint_mians p:nth-child(3),
+.registeredPrint_content .drugeChargePrint_mians p:nth-child(4) {
+	border-bottom: 2px solid #000;
+	min-height: 1cm;
+	line-height: 1cm
+}
+
+.registeredPrint_content .drugeChargePrint_mians p:nth-child(4) {
+	border: none
+}
+
+.registeredPrint_content .drugeChargePrint_mians p:nth-child(1) span,
+.registeredPrint_content .drugeChargePrint_mians p:nth-child(3) span,
+.registeredPrint_content .drugeChargePrint_mians p:nth-child(4) span {
+	width: 47%;
+	display: inline-block
+}
+
+.Infusion_card_print .drugeChargePrint_mians .drugeChargePrint_list {
+	height: 30px;
+	border-bottom: 1px solid #000;
+	line-height: 30px
+}
+
+.Infusion_card_print .drugeChargePrint_mians p {
+	border-bottom: 1px solid #000;
+	width: 95%;
+	margin: 0 auto;
+	padding: 5px
+}
+
+.Infusion_card_print .drugeChargePrint_mians p span {
+	display: inline-block;
+	width: 24%
+}
+
+.Infusion_card_print .drugeChargePrint_mians table {
+	width: 95%;
+	margin: 0 auto
+}
+
+.Infusion_card_print .drugeChargePrint_mians table tr {
+	text-align: center
+}
+
+.Infusion_card_print .drugeChargePrint_mians table thead tr th {
+	font-weight: 700
+}
+
+.Infusion_card_print .drugeChargePrint_mians table tbody {
+	border: 1px solid #000
+}
+
+.Infusion_card_print .drugeChargePrint_mians table tbody .list_details td:nth-child(1) {
+	border-right: 1px solid #000
+}
+
+.Infusion_card_print .drugeChargePrint_mians table tbody .list_details td:nth-child(2) p {
+	border: none;
+	text-align: center
+}
+
+.Infusion_card_print .check_name {
+	height: 50px;
+	width: 84%;
+	text-align: right;
+	line-height: 50px
+}
+
+.register-charge-info,
+.registered_title {
+	line-height: 28px;
+	height: 28px
+}
+
+.print_title_left {
+	margin-left: 20px
+}
+
+.print_title_right {
+	margin-right: 20px
+}
+
+.print_title {
+	height: 36px;
+	border-bottom: 1px solid #d7d9d8
+}
+
+.registereseach_xiangxi {
+	display: none
+}
+
+.registered_tab {
+	width: 178px;
+	margin: 0 auto;
+	display: block
+}
+
+.registered_main {
+	margin-top: 9px
+}
+
+.register-charge-info {
+	white-space: nowrap;
+	float: left;
+	padding-left: 20px
+}
+
+.register-charge-info .color-num {
+	color: #1FD273;
+	font-weight: 700
+}
+
+.register-charge-info>ul {
+	display: inline-block;
+	margin-left: 35px
+}
+
+.register-charge-info>ul:first-child {
+	margin-left: 0
+}
+
+.register-charge-info>ul>li {
+	display: inline-block
+}
+
+.register-charge-info>ul>li input {
+	height: 28px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	display: inline-block;
+	width: 80px;
+	padding: 0 5px;
+	color: red
+}
+
+.register-charge-info>.mk-select-div {
+	margin-left: 35px
+}
+
+.registered_mzgh_left {
+	width: 71.54195804195804%;
+	min-height: 175px;
+	background-color: #fff;
+	float: left
+}
+
+.registered_mzgh_right {
+	width: 28.14685314685315%;
+	position: absolute;
+	top: 37px;
+	bottom: 0;
+	right: 0;
+	margin-left: 4px;
+	background-color: #fff;
+	padding-left: 14px;
+	padding-right: 14px;
+	box-sizing: border-box
+}
+
+.registered_title div {
+	float: left
+}
+
+.registered_title div:nth-child(1) {
+	font-size: 16px;
+	color: #1FD273
+}
+
+.registered_title div:nth-child(2) {
+	margin-left: 8px;
+	color: #bbb;
+	font-size: 12px
+}
+
+.registered_title div:nth-child(3) {
+	float: right;
+	margin-right: 17px
+}
+
+.registered_mzgh_left .mk-check {
+	margin-top: 4px
+}
+
+.registered_mzgh_left {
+	margin-top: 9px;
+	padding: 22px;
+	box-sizing: border-box
+}
+
+.registered_mzgh_left_main {
+	height: 52px;
+	background-color: #f2f2f2;
+	border-radius: 3px;
+	margin-top: 7px;
+	box-shadow: 0 2px 5px #E0DDDD;
+	text-align: center
+}
+
+.registered_mzgh_left_main div {
+	float: left;
+	margin-right: 13px
+}
+
+.registered_mzgh_left_main div:nth-child(1) {
+	width: 19%;
+	min-width: 162px;
+	margin-left: 16px
+}
+
+.registered_mzgh_left_main div:nth-child(2) {
+	width: 22%;
+	min-width: 162px
+}
+
+.personCover .table-mkdefalut>thead>tr>th {
+	background-color: #fff
+}
+
+.personCover .pull-right {
+	margin-top: 0
+}
+
+.personCover .personinfo_main {
+	width: 100%;
+	padding: 20px;
+	box-sizing: border-box
+}
+
+.registered_mzgh_left_main7_1194 {
+	float: left;
+	margin-top: 18px;
+	margin-left: 15px;
+	display: none
+}
+
+@media screen and (max-width:1500px) {
+	.registered_mzgh_left_main div:nth-child(2) {
+		width: 24%;
+		min-width: 162px
+	}
+}
+
+@media screen and (max-width:1370px) {
+	.registered_mzgh_left_main7_1920 {
+		display: none
+	}
+	.registered_mzgh_left_main7_1194 {
+		display: block
+	}
+	.registered_mzgh_left_main div:nth-child(2) {
+		width: 28%;
+		min-width: 162px
+	}
+}
+
+.registered_mzgh_left_main div:nth-child(3) {
+	width: 13%;
+	min-width: 160px;
+	margin-top: 18px;
+	margin-right: 0
+}
+
+.registered_mzgh_left_main div:nth-child(4) {
+	width: 22%;
+	min-width: 90px;
+	margin-top: 18px;
+	margin-right: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis
+}
+
+.registered_mzgh_left_main1 p {
+	float: left
+}
+
+.registered_mzgh_left_main1 p:nth-child(1) {
+	margin-top: 18px;
+	margin-right: 4px
+}
+
+.registered_mzgh_left_main1 p:nth-child(2) {
+	margin-top: 14px
+}
+
+.registered_ghlb {
+	margin-left: 16px
+}
+
+.registered_mzgh_left_money {
+	margin-top: 11px;
+	height: 28px
+}
+
+.registered_mzgh_left_money_bz {
+	width: 50%;
+	height: 28px
+}
+
+.registered_mzgh_left_money_bz input {
+	width: 100%;
+	text-indent: 4px;
+	background-color: #fafafa;
+	border: 1px solid #ccc;
+	height: 28px
+}
+
+.registered_mzgh_left_money_je {
+	line-height: 28px
+}
+
+.registered_mzgh_right_title {
+	line-height: 50px;
+	font-size: 16px;
+	color: #1FD273
+}
+
+.registered_mzgh_right_ryxm {
+	border-radius: 3px;
+	width: 66.66666666666667%
+}
+
+.label-input_input {
+	width: 100%;
+	text-indent: 90px
+}
+
+#registeredWrap .label-input_input {
+	padding: 0
+}
+
+.registered_mzgh_right_ryxm img {
+	width: 28px;
+	height: 28px;
+	position: absolute;
+	right: 0;
+	outline: 0;
+	cursor: pointer
+}
+
+.registered_mzgh_right_main1 {
+	position: relative
+}
+
+.registered_mzgh_right_main2 {
+	margin-top: 11px
+}
+
+.registered_mzgh_right_main3 {
+	margin-top: 11px;
+	width: 100%;
+	border: 1px solid #ddd;
+	border-radius: 3px
+}
+
+.registered_mzgh_right_main4 {
+	margin-top: 11px;
+	width: 100%;
+	border: 1px solid #ddd;
+	height: 28px;
+	border-radius: 3px
+}
+
+.registered_mzgh_right_main2_age {
+	width: 66.66666666666667%;
+	border: 1px solid #ddd;
+	position: relative;
+	height: 28px;
+	display: flex
+}
+
+.registered_mzgh_right_main2_age div:nth-child(1) {
+	position: relative;
+	height: 28px;
+	float: left
+}
+
+.registered_mzgh_right_main2_age div:nth-child(2) {
+	width: 100%;
+	position: relative;
+	height: 28px;
+	float: left
+}
+
+.registered_mzgh_right_main2_age input {
+	width: 81px;
+	border: none;
+	height: 28px;
+	background-color: #fafafa
+}
+
+.registered_mzgh_white_span {
+	position: absolute;
+	right: 0;
+	width: 20%;
+	height: 28px;
+	background-color: #fff;
+	top: 0;
+	line-height: 28px;
+	text-align: center;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd
+}
+
+.registered_mzgh_right_main2_kg {
+	position: relative;
+	width: 32%;
+	border: 1px solid #ddd;
+	height: 30px;
+	box-sizing: border-box
+}
+
+.registered_mzgh_right_main2_kg input {
+	width: 100%;
+	border: none;
+	height: 28px;
+	background-color: #fafafa
+}
+
+.registered_mzgh_right_main3 input,
+.registered_mzgh_right_main4 input {
+	width: 100%;
+	height: 28px;
+	background-color: #fafafa;
+	border: none;
+	text-indent: 90px;
+	padding: 0
+}
+
+.registered_getmoney {
+	margin-top: 8px;
+	line-height: 30px
+}
+
+.registered_getmoney_input {
+	width: 52px;
+	height: 28px;
+	border: 1px solid #ddd;
+	background-color: #fafafa;
+	text-indent: 4px
+}
+
+.yz_redborder {
+	border: 1px solid red
+}
+
+.seach {
+	position: absolute;
+	width: 100%;
+	top: 34px;
+	z-index: 6;
+	border: 1px solid #ddd;
+	box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .0470588);
+	display: none
+}
+
+#registered_seach>thead>tr {
+	background-color: #eee;
+	height: 28px;
+	line-height: 28px
+}
+
+#registered_seach>tbody>tr {
+	background-color: #fff;
+	height: 28px;
+	line-height: 28px
+}
+
+.registereseach_head {
+	height: 96px
+}
+
+.registereseach_title {
+	height: 52px;
+	background-color: #f2f2f2;
+	border-radius: 3px;
+	margin-top: 12px;
+	text-align: center;
+	box-shadow: 0 2px 5px #E0DDDD
+}
+
+.registereseach_sj {
+	margin-top: 8px
+}
+
+.fls {
+	float: left;
+	margin-left: 2.43558282208589%
+}
+
+.registereseach_main {
+	margin-top: 22px
+}
+
+#registereseach_wrap .dropdown-menu {
+	left: -15px
+}
+
+.comeback {
+	width: 53px;
+	height: 100px;
+	position: fixed;
+	right: 3%;
+	bottom: 10%;
+	display: none;
+	z-index: 5
+}
+
+.comeback .bottom,
+.comeback .top {
+	width: 53px;
+	height: 53px;
+	outline: 0;
+	cursor: pointer
+}
+
+.comeback .top {
+	transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	background: url(../../../images/count_log_bottom.png) no-repeat
+}
+
+.comeback .top:active {
+	background: url(../../../images/count_log_bottom1.png) no-repeat
+}
+
+.comeback .bottom {
+	margin-left: 1px;
+	background: url(../../../images/count_log_bottom.png) no-repeat
+}
+
+.comeback .bottom:active {
+	background: url(../../../images/count_log_bottom1.png) no-repeat
+}
+
+.statuss-0 {
+	color: #ff4848
+}
+
+.statuss-1 {
+	color: #1fd273
+}
+
+.statuss-2 {
+	color: #adadad
+}
+
+.registereseach_none {
+	visibility: hidden
+}
+
+.registereseach_li {
+	width: 84px;
+	text-align: center;
+	display: inline-block
+}
+
+.registereseach_prexiangxi li {
+	height: 36px;
+	border: 1px solid #e5e5e5;
+	border-bottom: none;
+	line-height: 36px
+}
+
+.registereseach_prexiangxi li:nth-child(9) {
+	border-bottom: 1px solid #e5e5e5
+}
+
+.registereseach_border_none {
+	border: none!important;
+	background-color: transparent!important;
+	background-image: none!important
+}
+
+.workamountcount ul.nrul:nth-child(odd),
+table.MZGHTJtable>tbody>tr:nth-child(even) {
+	background-color: #eee
+}
+
+.registereseach_border_none:after {
+	border: none!important
+}
+
+.registeredPrint_bzfoot,
+.registeredPrint_pre,
+.registeredPrint_title {
+	border-bottom: 1px solid #000
+}
+
+.registeredPrint_head {
+	text-align: center
+}
+
+.registeredPrint_title {
+	line-height: 24px
+}
+
+.registeredPrint_head h1,
+.registeredPrint_head h2 {
+	font-size: 21px;
+	font-weight: 700;
+	margin-bottom: 12px
+}
+
+.registeredPrint_pre {
+	overflow: auto
+}
+
+.registeredPrint_pre li {
+	float: left;
+	line-height: 25px
+}
+
+.registeredPrint_pre li:nth-child(1) {
+	width: 33%
+}
+
+.registeredPrint_pre li:nth-child(2) {
+	width: 40%
+}
+
+.registeredPrint_pre li:nth-child(4) {
+	width: 33%
+}
+
+.registeredPrint_bzfoot {
+	position: absolute;
+	bottom: 38px;
+	width: 92%;
+	border-top: 1px solid #000;
+	line-height: 40px
+}
+
+.registeredPrint_bzfoot li {
+	float: left
+}
+
+.registeredPrint_bzfoot li:nth-child(1),
+.registeredPrint_bzfoot li:nth-child(2) {
+	width: 33%
+}
+
+.registeredPrint_click {
+	position: absolute;
+	right: 14px;
+	bottom: 10px
+}
+
+.registeredPrint_mians_left,
+.registeredPrint_mians_right {
+	overflow: auto;
+	width: 50%;
+	float: left;
+	line-height: 32px
+}
+
+.registered_getmoney {
+	float: right;
+	text-align: left
+}
+
+.registered_getmoney div {
+	text-align: left
+}
+
+.workamountcount ul.ullisplit {
+	width: 450px;
+	z-index: 2;
+	color: #979797;
+	box-sizing: border-box
+}
+
+.workamountcount ul.ullisplit li {
+	width: 15%;
+	float: left;
+	text-align: center;
+	line-height: 45px;
+	max-width: none;
+	box-sizing: border-box
+}
+
+.workamountcount ul.ullisplit li:nth-child(1) {
+	width: 12%
+}
+
+.workamountcount ul.ullisplit li:nth-child(2) {
+	width: 30%
+}
+
+.workamountcount ul.ullisplit li:nth-child(3) {
+	width: 25%
+}
+
+.workamountcount ul.hjul {
+	border: 1px solid #E4E4E4
+}
+
+.workamountcount ul.hjul li {
+	line-height: 28px;
+	font-size: 13px;
+	color: red;
+	font-weight: 700
+}
+
+.workamountcount ul.nrul {
+	border-bottom: 1px solid #e4e4e4;
+	border-right: 1px solid #e4e4e4;
+	border-left: 1px solid #e4e4e4
+}
+
+.workamountcount ul.nrul li {
+	line-height: 28px;
+	font-size: 13px;
+	color: #333
+}
+
+.workamountcount .YPGMFYMXType2 ul.ullisplit {
+	width: 370px
+}
+
+.workamountcount .YPGMFYMXType2 ul.ullisplit li:nth-child(1) {
+	width: 20%
+}
+
+.workamountcount .YPGMFYMXType2 ul.ullisplit li:nth-child(2) {
+	width: 45%
+}
+
+.workamountcount .YPGMFYMXType2 ul.ullisplit li:nth-child(3) {
+	width: 35%
+}
+
+.workamountcount .YPGMFYMXType3 ul.ullisplit li:nth-child(2) {
+	width: 20%
+}
+
+.workamountcount .YPGMFYMXType3 ul.ullisplit li:nth-child(3) {
+	width: 15%
+}
+
+.workamountcount .YPGMFYMXType3 ul.ullisplit li:nth-child(4) {
+	width: 20%
+}
+
+.workamountcount .YPGMFYMXType3 ul.ullisplit {
+	width: 560px
+}
+
+.workamountcount .YPGMFYMXType3 ul.hjul li:nth-child(2),
+.workamountcount .YPGMFYMXType3 ul.hjul li:nth-child(3) {
+	width: auto;
+	padding: 0 20px;
+	float: right
+}
+
+.purchasingcount .registereseach_main {
+	margin-top: 40px
+}
+
+.workamountcount .MZCFTJMXType1 ul.ullisplit {
+	width: 690px
+}
+
+.workamountcount .MZCFTJMXType1 ul.ullisplit:after {
+	clear: both;
+	display: block;
+	content: "";
+	height: 0;
+	visibility: hidden
+}
+
+.workamountcount .MZCFTJMXType1 ul.ullisplit li:nth-child(1) {
+	width: 8%
+}
+
+.workamountcount .MZCFTJMXType1 ul.ullisplit li:nth-child(2),
+.workamountcount .MZCFTJMXType1 ul.ullisplit li:nth-child(3) {
+	width: 20%
+}
+
+.workamountcount .MZCFTJMXType1 ul.ullisplit li:nth-child(4),
+.workamountcount .MZCFTJMXType1 ul.ullisplit li:nth-child(5) {
+	width: 10%
+}
+
+.workamountcount .MZCFTJMXTypeg ul.ullisplit li:nth-child(4),
+.workamountcount .MZCFTJMXTypeg ul.ullisplit li:nth-child(5) {
+	width: 15%
+}
+
+.workamountcount .scrollDiv {
+	height: 270px;
+	overflow-y: auto;
+	overflow-x: hidden
+}
+
+.workamountcount .overflow-s {
+	overflow: visible;
+	text-overflow: clip
+}
+
+.workamountcount ul.ullisplit li.fr {
+	float: right
+}
+
+.workamountcount .MZCFTJMXType3 ul.ullisplit {
+	width: 400px
+}
+
+.workamountcount .MZCFTJMXType3 ul.ullisplit li:nth-child(2) {
+	width: 40%
+}
+
+.workamountcount .MZCFTJMXType3 ul.ullisplit li:nth-child(3) {
+	width: 20%
+}
+
+.workamountcount .MZCFTJMXType3 ul.ullisplit li:nth-child(4) {
+	width: 25%
+}
+
+.purchasingcount table th {
+	white-space: nowrap
+}
+
+.workamountcount .MZFYMXType1 ul.ullisplit {
+	min-width: 710px;
+	white-space: nowrap;
+	width: auto
+}
+
+.workamountcount .SFYMXType1 ul.ullisplit li:nth-child(1) {
+	width: 6%
+}
+
+.workamountcount .SFYMXType1 ul.ullisplit li:nth-child(2) {
+	width: 17%
+}
+
+.workamountcount .SFYMXType1 ul.ullisplit li:nth-child(3),
+.workamountcount .SFYMXType1 ul.ullisplit li:nth-child(4),
+.workamountcount .SFYMXType1 ul.ullisplit li:nth-child(5),
+.workamountcount .SFYMXType1 ul.ullisplit li:nth-child(6),
+.workamountcount .SFYMXType1 ul.ullisplit li:nth-child(7),
+.workamountcount .SFYMXType1 ul.ullisplit li:nth-child(8) {
+	width: 10%
+}
+
+.workamountcount .SFYMXType1 ul.ullisplit li:nth-child(9) {
+	width: 12%
+}
+
+.workamountcount .SFYMXType1 ul.ullisplit {
+	width: 790px
+}
+
+.workamountcount .MZFYMXType1 ul.ullisplit li {
+	float: none;
+	display: inline-block;
+	vertical-align: bottom
+}
+
+#MZGHFDIV .MZGHTJtable,
+.select-container .search-no-border {
+	float: left
+}
+
+.workamountcount .MZGHTJtable th {
+	color: #8a8a8a;
+	background-color: #eee;
+	border: 1px solid #ddd
+}
+
+#MZGHFDIV .repeatTable tr,
+#MZGHFDIV .repeatTable tr>td:first-child,
+#MZGHFDIV .repeatTable tr>th:first-child {
+	border-left: none
+}
+
+table.MZGHTJtable>tbody>tr:nth-child(odd) {
+	background-color: #fff
+}
+
+table.MZGHTJtable th {
+	white-space: nowrap
+}
+
+.border-right {
+	border-right: 1px solid #ddd
+}
+
+.workamountcount #MZFYMXType1 ul.ullisplit li {
+	width: 75px
+}
+
+.workamountcount #MZFYMXType1 ul.ullisplit li:nth-child(2) {
+	width: 140px
+}
+
+.workamountcount #MZFYMXType1 ul.ullisplit li:nth-child(1) {
+	width: 40px
+}
+
+.workamountcount .scrollDivMain {
+	height: auto
+}
+
+#MZGHFDIV .MZGHTJtable:after {
+	clear: both
+}
+
+#MZGHFDIV {
+	min-width: 1142px
+}
+
+#MZGHFDIV table tbody tr:first-child {
+	color: red;
+	font-weight: 700;
+	line-height: 37px
+}
+
+#MZGHFDIV .repeatTable tr:first-child {
+	border: none
+}
+
+#MZGHFDIV .repeatTable:last-child tr:first-child {
+	border-right: 1px solid #ddd
+}
+
+#MZGHFDIV .firstTable tbody tr,
+#MZGHFDIV .firstTable th {
+	border-right: none
+}
+
+#MZGHFDIV .firstTable thead {
+	position: relative
+}
+
+#MZGHFDIV .firstTable thead tr:after {
+	width: 1px;
+	height: 78px;
+	background-color: #ddd;
+	display: inline-block;
+	position: absolute;
+	z-index: 100000;
+	top: 0;
+	bottom: 0
+}
+
+.DrugList-PCL-add {
+	color: #009926
+}
+
+.DrugList-PCL-up {
+	color: #e9a00d
+}
+
+.kevin-DrugTotal {
+	margin-top: 20px;
+	height: 20px;
+	text-align: left;
+	line-height: 20px
+}
+
+.kevin-DrugTotal .span1 {
+	font-size: 15px;
+	font-weight: 700
+}
+
+.kevin-DrugTotal .span2 {
+	font-weight: 700;
+	color: red
+}
+
+#MZGHFDIVMain:after {
+	width: 1px;
+	display: block;
+	overflow: hidden
+}
+
+.select-container {
+	height: 28px
+}
+
+.select-container .right-con {
+	float: right
+}
+
+.select-container .sex-con {
+	display: inline-block;
+	width: 150px
+}
+
+.select-container .sex-con .mk-select-div {
+	width: 80px
+}
+
+.select-container .patient-class {
+	display: inline-block;
+	width: 135px
+}
+
+.select-container .atient-class .mk-select-div {
+	width: 116px
+}
+
+.table-con {
+	margin-top: 10px
+}
+
+.container {
+	min-width: 1100px
+}
+
+.container ul {
+	min-width: 6pc
+}
+
+.patientPrint {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: #eee;
+	margin: 4px;
+	display: none
+}
+
+.patientPrint_warp {
+	width: 22cm;
+	height: 500px;
+	position: fixed;
+	left: 28.1%;
+	top: 21.8%;
+	z-index: 999;
+	border: 4px solid #eee;
+	background-color: #f3f5f4;
+	box-shadow: 0 2px 5px 0
+}
+
+@page {
+	size: A4;
+	margin: 0
+}
+
+@media print {
+	.page,
+	.w3cbbs {
+		page-break-after: always
+	}
+	.page {
+		min-height: initial;
+		width: 21cm;
+		height: 29.7cm;
+		margin: 0 auto;
+		border: 1px solid #D3D3D3;
+		border-radius: 5px;
+		background: #fff;
+		box-shadow: 0 0 5px rgba(0, 0, 0, .1)
+	}
+	.subpage {
+		border: 5px solid red;
+		height: 100%
+	}
+}

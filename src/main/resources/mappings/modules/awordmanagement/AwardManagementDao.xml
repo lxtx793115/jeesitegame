@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.awordmanagement.dao.AwardManagementDao">
+    
+	<sql id="awardManagementColumns">
+		a.id AS "id",
+		a.room_name AS "roomName",
+		a.roomnumber AS "roomnumber",
+		a.gameroom_id AS "gameroomId",
+		a.term_num AS "termNum",
+		a.award_num AS "awardNum",
+		a.entertained_time AS "entertainedTime",
+		a.award_time AS "awardTime",
+		a.total_amount_of_investment AS "totalAmountOfInvestment",
+		a.total_people_of_investment AS "totalPeopleOfInvestment",
+		a.player_win_loss AS "playerWinLoss"
+	</sql>
+	
+	<sql id="awardManagementJoins">
+	</sql>
+    
+	<select id="get" resultType="AwardManagement">
+		SELECT 
+			<include refid="awardManagementColumns"/>
+		FROM award_management a
+		<include refid="awardManagementJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="AwardManagement">
+		SELECT 
+			<include refid="awardManagementColumns"/>
+		FROM award_management a
+		<include refid="awardManagementJoins"/>
+		<where>
+			
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="roomName != null and roomName != ''">
+				AND a.room_name = #{roomName}
+			</if>
+			<if test="roomnumber != null and roomnumber != ''">
+				AND a.roomnumber = #{roomnumber}
+			</if>
+			<if test="gameroomId != null and gameroomId != ''">
+				AND a.gameroom_id = #{gameroomId}
+			</if>
+			<if test="termNum != null and termNum != ''">
+				AND a.term_num = #{termNum}
+			</if>
+			<if test="awardNum != null and awardNum != ''">
+				AND a.award_num = #{awardNum}
+			</if>
+			<if test="entertainedTime != null and entertainedTime != ''">
+				AND a.entertained_time = #{entertainedTime}
+			</if>
+			<if test="awardTime != null and awardTime != ''">
+				AND a.award_time = #{awardTime}
+			</if>
+			<if test="totalAmountOfInvestment != null and totalAmountOfInvestment != ''">
+				AND a.total_amount_of_investment = #{totalAmountOfInvestment}
+			</if>
+			<if test="totalPeopleOfInvestment != null and totalPeopleOfInvestment != ''">
+				AND a.total_people_of_investment = #{totalPeopleOfInvestment}
+			</if>
+			<if test="playerWinLoss != null and playerWinLoss != ''">
+				AND a.player_win_loss = #{playerWinLoss}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="AwardManagement">
+		SELECT 
+			<include refid="awardManagementColumns"/>
+		FROM award_management a
+		<include refid="awardManagementJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO award_management(
+			id,
+			room_name,
+			roomnumber,
+			gameroom_id,
+			term_num,
+			award_num,
+			entertained_time,
+			award_time,
+			total_amount_of_investment,
+			total_people_of_investment,
+			player_win_loss
+		) VALUES (
+			#{id},
+			#{roomName},
+			#{roomnumber},
+			#{gameroomId},
+			#{termNum},
+			#{awardNum},
+			#{entertainedTime},
+			#{awardTime},
+			#{totalAmountOfInvestment},
+			#{totalPeopleOfInvestment},
+			#{playerWinLoss}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE award_management SET 	
+			room_name = #{roomName},
+			roomnumber = #{roomnumber},
+			gameroom_id = #{gameroomId},
+			term_num = #{termNum},
+			award_num = #{awardNum},
+			entertained_time = #{entertainedTime},
+			award_time = #{awardTime},
+			total_amount_of_investment = #{totalAmountOfInvestment},
+			total_people_of_investment = #{totalPeopleOfInvestment},
+			player_win_loss = #{playerWinLoss}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM award_management
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

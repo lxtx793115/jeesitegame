@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.gameroom.dao.GameRoomDao">
+    
+	<sql id="gameRoomColumns">
+		a.id AS "id",
+		a.no AS "no",
+		a.name AS "name",
+		a.robot_name AS "robotName",
+		a.robot_photo AS "robotPhoto",
+		a.guess_flag AS "guessFlag",
+		a.open_flag AS "openFlag",
+		a.count AS "count",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.room_icon AS "roomIcon",
+		a.room_lottery_ticket_type AS "roomLotteryTicketType",
+		a.room_lottery_ticket_type_context AS "roomLotteryTicketTypeContext",
+		
+		a.roomnumber AS "roomnumber",
+		a.guess_flag_context AS "guessFlagContext",
+		a.open_flag_context AS "openFlagContext",
+		a.open_chat AS "openChat",
+		a.open_chat_context AS "openChatContext",
+		
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="gameRoomJoins">
+	</sql>
+    
+	<select id="get" resultType="GameRoom">
+		SELECT 
+			<include refid="gameRoomColumns"/>
+		FROM game_room a
+		<include refid="gameRoomJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="GameRoom">
+		SELECT 
+			<include refid="gameRoomColumns"/>
+		FROM game_room a
+		<include refid="gameRoomJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="name != null and name != ''">
+				AND a.name LIKE 
+					<if test="dbName == 'oracle'">'%'||#{name}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{name}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{name},'%')</if>
+			</if>
+			<if test="roomLotteryTicketTypeContext != null and roomLotteryTicketTypeContext != ''">
+				AND a.room_lottery_ticket_type_context = #{roomLotteryTicketTypeContext}
+			</if>
+			<if test="roomLotteryTicketType != null and roomLotteryTicketType != ''">
+				AND a.room_lottery_ticket_type = #{roomLotteryTicketType}
+			</if>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="roomnumber != null and roomnumber != ''">
+				AND a.roomnumber = #{roomnumber}
+			</if>
+			<if test="robotName != null and robotName != ''">
+				AND a.robot_name = #{robotName}
+			</if>
+			<if test="robotPhoto != null and robotPhoto != ''">
+				AND a.robot_photo = #{robotPhoto}
+			</if>
+			<if test="guessFlag != null and guessFlag != ''">
+				AND a.guess_flag = #{guessFlag}
+			</if>
+			<if test="openFlag != null and openFlag != ''">
+				AND a.open_flag = #{openFlag}
+			</if>
+			<if test="count != null and count != ''">
+				AND a.count = #{count}
+			</if>
+			<if test="roomIcon != null and roomIcon != ''">
+				AND a.room_icon = #{roomIcon}
+			</if>
+			<if test="openChat != null and openChat != ''">
+				AND a.open_chat = #{openChat}
+			</if>
+			<if test="openChatContext != null and openChatContext != ''">
+				AND a.open_chat_context = #{openChatContext}
+			</if>
+			<if test="openFlagContext != null and openFlagContext != ''">
+				AND a.open_flag_context = #{openFlagContext}
+			</if>
+			<if test="guessFlagContext != null and guessFlagContext != ''">
+				AND a.guess_flag_context = #{guessFlagContext}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.roomnumber asc
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="GameRoom">
+		SELECT 
+			<include refid="gameRoomColumns"/>
+		FROM game_room a
+		<include refid="gameRoomJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	<insert id="insert">
+		INSERT INTO game_room(
+		room_lottery_ticket_type_context,
+			room_lottery_ticket_type,
+			id,
+			no,
+			name,
+			robot_name,
+			robot_photo,
+			guess_flag,
+			open_flag,
+			count,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			room_icon,
+			roomnumber,
+			guess_flag_context,
+			open_flag_context,
+			open_chat,
+			open_chat_context,
+			
+			del_flag
+		) VALUES (
+			#{roomLotteryTicketTypeContext},
+			#{roomLotteryTicketType},
+			#{id},
+			#{no},
+			#{name},
+			#{robotName},
+			#{robotPhoto},
+			#{guessFlag},
+			#{openFlag},
+			#{count},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{roomIcon},
+			#{roomnumber},
+			#{guessFlagContext},
+			#{openFlagContext},
+			#{openChat},
+			#{openChatContext},
+			
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE game_room SET
+			room_lottery_ticket_type_context = #{roomLotteryTicketTypeContext}, 	
+			room_lottery_ticket_type = #{roomLotteryTicketType}, 	
+			no = #{no},
+			name = #{name},
+			robot_name = #{robotName},
+			robot_photo = #{robotPhoto},
+			guess_flag = #{guessFlag},
+			open_flag = #{openFlag},
+			count = #{count},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			room_icon = #{roomIcon},
+			guess_flag_context=#{guessFlagContext},
+			open_flag_context=#{openFlagContext},
+			open_chat=#{openChat},
+			open_chat_context=#{openChatContext},
+			roomnumber=#{roomnumber},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE game_room SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	<!-- 根据房间号查询房间是否开启 -->
+	<select id="queryRoomCount" resultType="GameRoom" parameterType="m">
+		select * from game_room
+		where no=#{roomNo}   and  del_flag='0' and open_flag='1'
+	</select>	
+</mapper>

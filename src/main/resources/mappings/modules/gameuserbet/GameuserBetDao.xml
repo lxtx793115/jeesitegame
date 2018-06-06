@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.gameuserbet.dao.GameuserBetDao">
+    
+	<sql id="gameuserBetColumns">
+		a.id AS "id",
+		a.gameroom_id AS "gameroomId",
+		a.roomnumber AS "roomnumber",
+		a.roomname AS "roomname",
+		a.username AS "username",
+		a.nickname AS "nickname",
+		a.gameuserid AS "gameuserid",
+		a.user_da AS "userDa",
+		a.user_dan AS "userDan",
+		a.user_shuang AS "userShuang",
+		a.user_xiao AS "userXiao",
+		a.user_dadan AS "userDadan",
+		a.user_dashuang AS "userDashuang",
+		a.user_xiaodan AS "userXiaodan",
+		a.xiaoshuang AS "xiaoshuang",
+		a.user_jida AS "userJida",
+		a.user_jixiao AS "userJixiao",
+		a.user_hongbo AS "userHongbo",
+		a.user_lanbo AS "userLanbo",
+		a.user_lvbo AS "userLvbo",
+		a.user_baizi AS "userBaizi",
+		a.user_shunzi AS "userShunzi",
+		a.user_duizi AS "userDuizi",
+		a.user_tema0 AS "userTema0",
+		a.user_tema1 AS "userTema1",
+		a.user_tema2 AS "userTema2",
+		a.user_tema3 AS "userTema3",
+		a.user_tema4 AS "userTema4",
+		a.user_tema5 AS "userTema5",
+		a.user_tema6 AS "userTema6",
+		a.user_tema7 AS "userTema7",
+		a.user_tema8 AS "userTema8",
+		a.user_tema9 AS "userTema9",
+		a.user_tema10 AS "userTema10",
+		a.user_tema11 AS "userTema11",
+		a.user_tema12 AS "userTema12",
+		a.user_tema13 AS "userTema13",
+		a.user_tema14 AS "userTema14",
+		a.user_tema15 AS "userTema15",
+		a.user_tema16 AS "userTema16",
+		a.user_tema17 AS "userTema17",
+		a.user_tema18 AS "userTema18",
+		a.user_tema19 AS "userTema19",
+		a.user_tema20 AS "userTema20",
+		a.user_tema21 AS "userTema21",
+		a.user_tema22 AS "userTema22",
+		a.user_tema23 AS "userTema23",
+		a.user_tema24 AS "userTema24",
+		a.user_tema25 AS "userTema25",
+		a.user_tema26 AS "userTema26",
+		a.user_tema27 AS "userTema27"
+	</sql>
+	
+	<sql id="gameuserBetJoins">
+	</sql>
+    
+	<select id="get" resultType="GameuserBet">
+		SELECT 
+			<include refid="gameuserBetColumns"/>
+		FROM gameuser_bet a
+		<include refid="gameuserBetJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="GameuserBet">
+		SELECT 
+			<include refid="gameuserBetColumns"/>
+		FROM gameuser_bet a
+		<include refid="gameuserBetJoins"/>
+		<where>
+			
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="gameroomId != null and gameroomId != ''">
+				AND a.gameroom_id = #{gameroomId}
+			</if>
+			<if test="roomnumber != null and roomnumber != ''">
+				AND a.roomnumber = #{roomnumber}
+			</if>
+			<if test="roomname != null and roomname != ''">
+				AND a.roomname = #{roomname}
+			</if>
+			<if test="username != null and username != ''">
+				AND a.username = #{username}
+			</if>
+			<if test="nickname != null and nickname != ''">
+				AND a.nickname = #{nickname}
+			</if>
+			<if test="gameuserid != null and gameuserid != ''">
+				AND a.gameuserid = #{gameuserid}
+			</if>
+			<if test="userDa != null and userDa != ''">
+				AND a.user_da = #{userDa}
+			</if>
+			<if test="userDan != null and userDan != ''">
+				AND a.user_dan = #{userDan}
+			</if>
+			<if test="userShuang != null and userShuang != ''">
+				AND a.user_shuang = #{userShuang}
+			</if>
+			<if test="userXiao != null and userXiao != ''">
+				AND a.user_xiao = #{userXiao}
+			</if>
+			<if test="userDadan != null and userDadan != ''">
+				AND a.user_dadan = #{userDadan}
+			</if>
+			<if test="userDashuang != null and userDashuang != ''">
+				AND a.user_dashuang = #{userDashuang}
+			</if>
+			<if test="userXiaodan != null and userXiaodan != ''">
+				AND a.user_xiaodan = #{userXiaodan}
+			</if>
+			<if test="xiaoshuang != null and xiaoshuang != ''">
+				AND a.xiaoshuang = #{xiaoshuang}
+			</if>
+			<if test="userJida != null and userJida != ''">
+				AND a.user_jida = #{userJida}
+			</if>
+			<if test="userJixiao != null and userJixiao != ''">
+				AND a.user_jixiao = #{userJixiao}
+			</if>
+			<if test="userHongbo != null and userHongbo != ''">
+				AND a.user_hongbo = #{userHongbo}
+			</if>
+			<if test="userLanbo != null and userLanbo != ''">
+				AND a.user_lanbo = #{userLanbo}
+			</if>
+			<if test="userLvbo != null and userLvbo != ''">
+				AND a.user_lvbo = #{userLvbo}
+			</if>
+			<if test="userBaizi != null and userBaizi != ''">
+				AND a.user_baizi = #{userBaizi}
+			</if>
+			<if test="userShunzi != null and userShunzi != ''">
+				AND a.user_shunzi = #{userShunzi}
+			</if>
+			<if test="userDuizi != null and userDuizi != ''">
+				AND a.user_duizi = #{userDuizi}
+			</if>
+			<if test="userTema0 != null and userTema0 != ''">
+				AND a.user_tema0 = #{userTema0}
+			</if>
+			<if test="userTema1 != null and userTema1 != ''">
+				AND a.user_tema1 = #{userTema1}
+			</if>
+			<if test="userTema2 != null and userTema2 != ''">
+				AND a.user_tema2 = #{userTema2}
+			</if>
+			<if test="userTema3 != null and userTema3 != ''">
+				AND a.user_tema3 = #{userTema3}
+			</if>
+			<if test="userTema4 != null and userTema4 != ''">
+				AND a.user_tema4 = #{userTema4}
+			</if>
+			<if test="userTema5 != null and userTema5 != ''">
+				AND a.user_tema5 = #{userTema5}
+			</if>
+			<if test="userTema6 != null and userTema6 != ''">
+				AND a.user_tema6 = #{userTema6}
+			</if>
+			<if test="userTema7 != null and userTema7 != ''">
+				AND a.user_tema7 = #{userTema7}
+			</if>
+			<if test="userTema8 != null and userTema8 != ''">
+				AND a.user_tema8 = #{userTema8}
+			</if>
+			<if test="userTema9 != null and userTema9 != ''">
+				AND a.user_tema9 = #{userTema9}
+			</if>
+			<if test="userTema10 != null and userTema10 != ''">
+				AND a.user_tema10 = #{userTema10}
+			</if>
+			<if test="userTema11 != null and userTema11 != ''">
+				AND a.user_tema11 = #{userTema11}
+			</if>
+			<if test="userTema12 != null and userTema12 != ''">
+				AND a.user_tema12 = #{userTema12}
+			</if>
+			<if test="userTema13 != null and userTema13 != ''">
+				AND a.user_tema13 = #{userTema13}
+			</if>
+			<if test="userTema14 != null and userTema14 != ''">
+				AND a.user_tema14 = #{userTema14}
+			</if>
+			<if test="userTema15 != null and userTema15 != ''">
+				AND a.user_tema15 = #{userTema15}
+			</if>
+			<if test="userTema16 != null and userTema16 != ''">
+				AND a.user_tema16 = #{userTema16}
+			</if>
+			<if test="userTema17 != null and userTema17 != ''">
+				AND a.user_tema17 = #{userTema17}
+			</if>
+			<if test="userTema18 != null and userTema18 != ''">
+				AND a.user_tema18 = #{userTema18}
+			</if>
+			<if test="userTema19 != null and userTema19 != ''">
+				AND a.user_tema19 = #{userTema19}
+			</if>
+			<if test="userTema20 != null and userTema20 != ''">
+				AND a.user_tema20 = #{userTema20}
+			</if>
+			<if test="userTema21 != null and userTema21 != ''">
+				AND a.user_tema21 = #{userTema21}
+			</if>
+			<if test="userTema22 != null and userTema22 != ''">
+				AND a.user_tema22 = #{userTema22}
+			</if>
+			<if test="userTema23 != null and userTema23 != ''">
+				AND a.user_tema23 = #{userTema23}
+			</if>
+			<if test="userTema24 != null and userTema24 != ''">
+				AND a.user_tema24 = #{userTema24}
+			</if>
+			<if test="userTema25 != null and userTema25 != ''">
+				AND a.user_tema25 = #{userTema25}
+			</if>
+			<if test="userTema26 != null and userTema26 != ''">
+				AND a.user_tema26 = #{userTema26}
+			</if>
+			<if test="userTema27 != null and userTema27 != ''">
+				AND a.user_tema27 = #{userTema27}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="GameuserBet">
+		SELECT 
+			<include refid="gameuserBetColumns"/>
+		FROM gameuser_bet a
+		<include refid="gameuserBetJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO gameuser_bet(
+			id,
+			gameroom_id,
+			roomnumber,
+			roomname,
+			username,
+			nickname,
+			gameuserid,
+			user_da,
+			user_dan,
+			user_shuang,
+			user_xiao,
+			user_dadan,
+			user_dashuang,
+			user_xiaodan,
+			xiaoshuang,
+			user_jida,
+			user_jixiao,
+			user_hongbo,
+			user_lanbo,
+			user_lvbo,
+			user_baizi,
+			user_shunzi,
+			user_duizi,
+			user_tema0,
+			user_tema1,
+			user_tema2,
+			user_tema3,
+			user_tema4,
+			user_tema5,
+			user_tema6,
+			user_tema7,
+			user_tema8,
+			user_tema9,
+			user_tema10,
+			user_tema11,
+			user_tema12,
+			user_tema13,
+			user_tema14,
+			user_tema15,
+			user_tema16,
+			user_tema17,
+			user_tema18,
+			user_tema19,
+			user_tema20,
+			user_tema21,
+			user_tema22,
+			user_tema23,
+			user_tema24,
+			user_tema25,
+			user_tema26,
+			user_tema27
+		) VALUES (
+			#{id},
+			#{gameroomId},
+			#{roomnumber},
+			#{roomname},
+			#{username},
+			#{nickname},
+			#{gameuserid},
+			#{userDa},
+			#{userDan},
+			#{userShuang},
+			#{userXiao},
+			#{userDadan},
+			#{userDashuang},
+			#{userXiaodan},
+			#{xiaoshuang},
+			#{userJida},
+			#{userJixiao},
+			#{userHongbo},
+			#{userLanbo},
+			#{userLvbo},
+			#{userBaizi},
+			#{userShunzi},
+			#{userDuizi},
+			#{userTema0},
+			#{userTema1},
+			#{userTema2},
+			#{userTema3},
+			#{userTema4},
+			#{userTema5},
+			#{userTema6},
+			#{userTema7},
+			#{userTema8},
+			#{userTema9},
+			#{userTema10},
+			#{userTema11},
+			#{userTema12},
+			#{userTema13},
+			#{userTema14},
+			#{userTema15},
+			#{userTema16},
+			#{userTema17},
+			#{userTema18},
+			#{userTema19},
+			#{userTema20},
+			#{userTema21},
+			#{userTema22},
+			#{userTema23},
+			#{userTema24},
+			#{userTema25},
+			#{userTema26},
+			#{userTema27}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE gameuser_bet SET 	
+			gameroom_id = #{gameroomId},
+			roomnumber = #{roomnumber},
+			roomname = #{roomname},
+			username = #{username},
+			nickname = #{nickname},
+			gameuserid = #{gameuserid},
+			user_da = #{userDa},
+			user_dan = #{userDan},
+			user_shuang = #{userShuang},
+			user_xiao = #{userXiao},
+			user_dadan = #{userDadan},
+			user_dashuang = #{userDashuang},
+			user_xiaodan = #{userXiaodan},
+			xiaoshuang = #{xiaoshuang},
+			user_jida = #{userJida},
+			user_jixiao = #{userJixiao},
+			user_hongbo = #{userHongbo},
+			user_lanbo = #{userLanbo},
+			user_lvbo = #{userLvbo},
+			user_baizi = #{userBaizi},
+			user_shunzi = #{userShunzi},
+			user_duizi = #{userDuizi},
+			user_tema0 = #{userTema0},
+			user_tema1 = #{userTema1},
+			user_tema2 = #{userTema2},
+			user_tema3 = #{userTema3},
+			user_tema4 = #{userTema4},
+			user_tema5 = #{userTema5},
+			user_tema6 = #{userTema6},
+			user_tema7 = #{userTema7},
+			user_tema8 = #{userTema8},
+			user_tema9 = #{userTema9},
+			user_tema10 = #{userTema10},
+			user_tema11 = #{userTema11},
+			user_tema12 = #{userTema12},
+			user_tema13 = #{userTema13},
+			user_tema14 = #{userTema14},
+			user_tema15 = #{userTema15},
+			user_tema16 = #{userTema16},
+			user_tema17 = #{userTema17},
+			user_tema18 = #{userTema18},
+			user_tema19 = #{userTema19},
+			user_tema20 = #{userTema20},
+			user_tema21 = #{userTema21},
+			user_tema22 = #{userTema22},
+			user_tema23 = #{userTema23},
+			user_tema24 = #{userTema24},
+			user_tema25 = #{userTema25},
+			user_tema26 = #{userTema26},
+			user_tema27 = #{userTema27}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM gameuser_bet
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

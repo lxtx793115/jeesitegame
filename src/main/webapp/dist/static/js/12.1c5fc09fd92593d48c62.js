@@ -1,0 +1,2 @@
+webpackJsonp([12],{3930:function(t,n){},Gm3q:function(t,n,e){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var a={name:"Discount",data:function(){return{}},created:function(){},components:{tabbar:e("MTyd").a}},r={render:function(){var t=this.$createElement,n=this._self._c||t;return n("div",[this._v("\n  我是优惠页面\n  "),n("tabbar",{attrs:{activeNum:2}})],1)},staticRenderFns:[]};var c=e("VU/8")(a,r,!1,function(t){e("3930")},null,null);n.default=c.exports}});
+//# sourceMappingURL=12.1c5fc09fd92593d48c62.js.map

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.operationalset.dao.OperationalSetDao">
+    
+	<sql id="operationalSetColumns">
+		a.id AS "id",
+		a.website_title AS "websiteTitle",
+		a.room_key_words_shielding AS "roomKeyWordsShielding",
+		a.app_download_link AS "appDownloadLink",
+		a.advertisement_prompt AS "advertisementPrompt",
+		a.room_advertisement AS "roomAdvertisement",
+		a.sms_interface_key AS "smsInterfaceKey"
+	</sql>
+	
+	<sql id="operationalSetJoins">
+	</sql>
+    
+	<select id="get" resultType="OperationalSet">
+		SELECT 
+			<include refid="operationalSetColumns"/>
+		FROM operational_set a
+		<include refid="operationalSetJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="OperationalSet">
+		SELECT 
+			<include refid="operationalSetColumns"/>
+		FROM operational_set a
+		<include refid="operationalSetJoins"/>
+		<where>
+			
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="websiteTitle != null and websiteTitle != ''">
+				AND a.website_title = #{websiteTitle}
+			</if>
+			<if test="roomKeyWordsShielding != null and roomKeyWordsShielding != ''">
+				AND a.room_key_words_shielding = #{roomKeyWordsShielding}
+			</if>
+			<if test="appDownloadLink != null and appDownloadLink != ''">
+				AND a.app_download_link = #{appDownloadLink}
+			</if>
+			<if test="advertisementPrompt != null and advertisementPrompt != ''">
+				AND a.advertisement_prompt = #{advertisementPrompt}
+			</if>
+			<if test="roomAdvertisement != null and roomAdvertisement != ''">
+				AND a.room_advertisement = #{roomAdvertisement}
+			</if>
+			<if test="smsInterfaceKey != null and smsInterfaceKey != ''">
+				AND a.sms_interface_key = #{smsInterfaceKey}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="OperationalSet">
+		SELECT 
+			<include refid="operationalSetColumns"/>
+		FROM operational_set a
+		<include refid="operationalSetJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO operational_set(
+			id,
+			website_title,
+			room_key_words_shielding,
+			app_download_link,
+			advertisement_prompt,
+			room_advertisement,
+			sms_interface_key
+		) VALUES (
+			#{id},
+			#{websiteTitle},
+			#{roomKeyWordsShielding},
+			#{appDownloadLink},
+			#{advertisementPrompt},
+			#{roomAdvertisement},
+			#{smsInterfaceKey}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE operational_set SET 	
+			website_title = #{websiteTitle},
+			room_key_words_shielding = #{roomKeyWordsShielding},
+			app_download_link = #{appDownloadLink},
+			advertisement_prompt = #{advertisementPrompt},
+			room_advertisement = #{roomAdvertisement},
+			sms_interface_key = #{smsInterfaceKey}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM operational_set
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.gameuser.dao.GameUserDao">
+    
+	<sql id="gameUserColumns">
+		a.id AS "id",
+		a.username AS "username",
+		a.password AS "password",
+		a.point AS "point",
+		a.salt AS "salt",
+		a.nickname AS "nickname",
+		a.phone AS "phone",
+		a.photo AS "photo",
+		a.no AS "no",
+		a.balance AS "balance",
+		a.wechat AS "wechat",
+		a.qq AS "qq",
+		a.alipay AS "alipay",
+		a.account AS "account",
+		a.ip AS "ip",
+		a.agent AS "agent",
+		a.fenghaostatus AS "fenghaostatus",
+		a.fengip AS "fengip",
+		a.gameusernumber AS "gameusernumber",
+		a.superiors AS "superiors",
+		a.create_adress AS "createAdress",
+		a.status AS "status",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.photourl AS "photourl",
+		a.user_online_status AS "userOnlineStatus",
+		a.payment_assword AS "paymentPassword",
+		a.usertype AS "usertype",
+		a.tuijianplayer AS "tuijianplayer",
+		a.gexingqianming AS "gexingqianming",
+		a.lastlogin AS "lastlogin",
+		a.registerip AS "registerip",
+		a.register_time AS "registerTime",
+		a.register_ip_area AS "registerIpArea",
+		a.login_time AS "loginTime",
+		a.login_ip_area AS "loginIpArea",
+		a.login_environment AS "loginEnvironment",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="gameUserJoins">
+	</sql>
+    
+	<select id="get" resultType="GameUser">
+		SELECT 
+			<include refid="gameUserColumns"/>
+		FROM game_user a
+		<include refid="gameUserJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="GameUser">
+		SELECT 
+			<include refid="gameUserColumns"/>
+		FROM game_user a
+		<include refid="gameUserJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>
+		<if test="registerTime != null and registerTime != ''">
+				AND a.register_time = #{registerTime}
+			</if>
+			<if test="registerIpArea != null and registerIpArea != ''">
+				AND a.register_ip_area = #{registerIpArea}
+			</if>
+			<if test="loginTime != null and loginTime != ''">
+				AND a.login_time = #{loginTime}
+			</if>
+			<if test="loginIpArea != null and loginIpArea != ''">
+				AND a.login_ip_area = #{loginIpArea}
+			</if>
+			<if test="loginEnvironment != null and loginEnvironment != ''">
+				AND a.login_environment = #{loginEnvironment}
+			</if>
+		<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="usertype != null and usertype != ''">
+				AND a.usertype = #{usertype}
+			</if>
+			<if test="point != null and point != ''">
+				AND a.point = #{point}
+			</if>
+			<if test="tuijianplayer != null and tuijianplayer != ''">
+				AND a.tuijianplayer = #{tuijianplayer}
+			</if>
+			<if test="gexingqianming != null and gexingqianming != ''">
+				AND a.gexingqianming = #{gexingqianming}
+			</if>
+			<if test="registerip != null and registerip != ''">
+				AND a.registerip = #{registerip}
+			</if>
+			<if test="lastlogin != null and lastlogin != ''">
+				AND a.lastlogin = #{lastlogin}
+			</if>
+			<if test="userOnlineStatus != null and userOnlineStatus != ''">
+				AND a.user_online_status = #{userOnlineStatus}
+			</if>	
+			<if test="paymentPassword != null and paymentPassword != ''">
+				AND a.payment_assword = #{paymentPassword}
+			</if>		
+			<if test="status != null and status != ''">
+				AND a.status = #{status}
+			</if>	
+			<if test="fenghaostatus != null and fenghaostatus != '' and fenghaostatus != 3">
+				AND a.fenghaostatus = #{fenghaostatus}
+			</if>
+			<if test="fenghaostatus != null and fenghaostatus != ''and fenghaostatus == 3">
+				AND a.fenghaostatus in(1,2)
+			</if>			
+			<if test="gameusernumber != null and gameusernumber != ''">
+				AND a.gameusernumber = #{gameusernumber}
+			</if>
+			<if test="fengip != null and fengip != ''">
+				AND a.fengip = #{fengip}
+			</if>					
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="GameUser">
+		SELECT 
+			<include refid="gameUserColumns"/>
+		FROM game_user a
+		<include refid="gameUserJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where> 
+		<if test="registerTime != null and registerTime != ''">
+				AND a.register_time = #{registerTime}
+			</if>
+			<if test="registerIpArea != null and registerIpArea != ''">
+				AND a.register_ip_area = #{registerIpArea}
+			</if>
+			<if test="loginTime != null and loginTime != ''">
+				AND a.login_time = #{loginTime}
+			</if>
+			<if test="loginIpArea != null and loginIpArea != ''">
+				AND a.login_ip_area = #{loginIpArea}
+			</if>
+			<if test="loginEnvironment != null and loginEnvironment != ''">
+				AND a.login_environment = #{loginEnvironment}
+			</if>
+		<if test="point != null and point != ''">
+				AND a.point = #{point}
+			</if>
+		<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="usertype != null and usertype != ''">
+				AND a.usertype = #{usertype}
+			</if>
+			<if test="tuijianplayer != null and tuijianplayer != ''">
+				AND a.tuijianplayer = #{tuijianplayer}
+			</if>
+			<if test="gexingqianming != null and gexingqianming != ''">
+				AND a.gexingqianming = #{gexingqianming}
+			</if>
+			<if test="registerip != null and registerip != ''">
+				AND a.registerip = #{registerip}
+			</if>
+			<if test="lastlogin != null and lastlogin != ''">
+				AND a.lastlogin = #{lastlogin}
+			</if>
+			<if test="userOnlineStatus != null and userOnlineStatus != ''">
+				AND a.user_online_status = #{userOnlineStatus}
+			</if>	
+			<if test="paymentPassword != null and paymentPassword != ''">
+				AND a.payment_assword = #{paymentPassword}
+			</if>		
+			<if test="status != null and status != ''">
+				AND a.status = #{status}
+			</if>	
+			<if test="fengip != null and fengip != ''">
+				AND a.fengip = #{fengip}
+			</if>	
+			<if test="fenghaostatus != null and fenghaostatus != ''">
+				AND a.fenghaostatus = #{fenghaostatus}
+			</if>		
+			<if test="gameusernumber != null and gameusernumber != ''">
+				AND a.gameusernumber = #{gameusernumber}
+			</if>				
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO game_user(
+			id,
+			register_time,
+			register_ip_area,
+			login_time,
+			login_ip_area,
+			login_environment,
+			point ,
+			usertype ,
+			tuijianplayer,
+			gexingqianming,
+			lastlogin,
+			registerip,
+			user_online_status,
+			payment_assword,
+			fengip,
+			fenghaostatus,
+			gameusernumber,
+			username,
+			password,
+			nickname,
+			phone,
+			photo,
+			no,
+			balance,
+			wechat,
+			qq,
+			alipay,
+			account,
+			ip,
+			agent,
+			superiors,
+			create_adress,
+			status,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			photourl,
+			del_flag
+		) VALUES (
+			#{id},
+			#{register_time},
+			#{register_ip_area},
+			#{login_time},
+			#{login_ip_area},
+			#{login_environment},
+			#{point},
+			#{usertype},
+			#{tuijianplayer},
+			#{gexingqianming},
+			#{lastlogin},
+			#{registerip},
+			#{userOnlineStatus},
+			#{paymentPassword},
+			#{fengip},
+			#{fenghaostatus},
+			#{gameusernumber},
+			#{username},
+			#{password},
+			#{nickname},
+			#{phone},
+			#{photo},
+			#{no},
+			#{balance},
+			#{wechat},
+			#{qq},
+			#{alipay},
+			#{account},
+			#{ip},
+			#{agent},
+			#{superiors},
+			#{createAdress},
+			#{status},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{photourl},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE game_user SET 
+			register_time=#{registerTime},
+			register_ip_area=#{registerIpArea},
+			login_time=#{loginTime},
+			login_ip_area=#{loginIpArea},
+			login_environment=#{loginEnvironment},
+			point=#{point},
+			usertype=#{usertype} ,
+			tuijianplayer=#{tuijianplayer},
+			gexingqianming=#{gexingqianming},
+			lastlogin=#{lastlogin},
+			registerip=#{registerip},
+			user_online_status=#{userOnlineStatus},
+			payment_assword=#{paymentPassword},
+			fengip=#{fengip},
+			fenghaostatus=#{fenghaostatus},
+			gameusernumber=#{gameusernumber},	
+			username = #{username},
+			password = #{password},
+			salt = #{salt},
+			nickname = #{nickname},
+			phone = #{phone},
+			photo = #{photo},
+			no = #{no},
+			balance = #{balance},
+			wechat = #{wechat},
+			qq = #{qq},
+			alipay = #{alipay},
+			account = #{account},
+			ip = #{ip},
+			agent = #{agent},
+			superiors = #{superiors},
+			create_adress = #{createAdress},
+			status = #{status},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			photourl= #{photourl},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE game_user SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+
+
+
+	
+</mapper>

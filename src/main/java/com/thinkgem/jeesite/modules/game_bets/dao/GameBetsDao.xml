@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.game_bets.dao.GameBetsDao">
+    
+	<sql id="gameBetsColumns">
+		a.id AS "id",
+		a.room_id AS "roomId",
+		a.game_user_id AS "gameUserId",
+		a.money AS "money",
+		a.da AS "da",
+		a.xiao AS "xiao",
+		a.dan AS "dan",
+		a.shuang AS "shuang",
+		a.dadan AS "dadan",
+		a.dashuang AS "dashuang",
+		a.xiaodan AS "xiaodan",
+		a.xiaoshaung AS "xiaoshaung",
+		a.jida AS "jida",
+		a.jixiao AS "jixiao",
+		a.hongbo AS "hongbo",
+		a.lanbo AS "lanbo",
+		a.lvbo AS "lvbo",
+		a.baozi AS "baozi",
+		a.shunzi AS "shunzi",
+		a.duizi AS "duizi",
+		a.create_by AS "createBy.id",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy.id",
+		a.update_date AS "updateDate",
+		a.remarks AS "remarks",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="gameBetsJoins">
+	</sql>
+    
+	<select id="get" resultType="GameBets">
+		SELECT 
+			<include refid="gameBetsColumns"/>
+		FROM game_bets a
+		<include refid="gameBetsJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="GameBets">
+		SELECT 
+			<include refid="gameBetsColumns"/>
+		FROM game_bets a
+		<include refid="gameBetsJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="GameBets">
+		SELECT 
+			<include refid="gameBetsColumns"/>
+		FROM game_bets a
+		<include refid="gameBetsJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO game_bets(
+			id,
+			room_id,
+			game_user_id,
+			money,
+			da,
+			xiao,
+			dan,
+			shuang,
+			dadan,
+			dashuang,
+			xiaodan,
+			xiaoshaung,
+			jida,
+			jixiao,
+			hongbo,
+			lanbo,
+			lvbo,
+			baozi,
+			shunzi,
+			duizi,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			remarks,
+			del_flag
+		) VALUES (
+			#{id},
+			#{roomId},
+			#{gameUserId},
+			#{money},
+			#{da},
+			#{xiao},
+			#{dan},
+			#{shuang},
+			#{dadan},
+			#{dashuang},
+			#{xiaodan},
+			#{xiaoshaung},
+			#{jida},
+			#{jixiao},
+			#{hongbo},
+			#{lanbo},
+			#{lvbo},
+			#{baozi},
+			#{shunzi},
+			#{duizi},
+			#{createBy.id},
+			#{createDate},
+			#{updateBy.id},
+			#{updateDate},
+			#{remarks},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE game_bets SET 	
+			room_id = #{roomId},
+			game_user_id = #{gameUserId},
+			money = #{money},
+			da = #{da},
+			xiao = #{xiao},
+			dan = #{dan},
+			shuang = #{shuang},
+			dadan = #{dadan},
+			dashuang = #{dashuang},
+			xiaodan = #{xiaodan},
+			xiaoshaung = #{xiaoshaung},
+			jida = #{jida},
+			jixiao = #{jixiao},
+			hongbo = #{hongbo},
+			lanbo = #{lanbo},
+			lvbo = #{lvbo},
+			baozi = #{baozi},
+			shunzi = #{shunzi},
+			duizi = #{duizi},
+			update_by = #{updateBy.id},
+			update_date = #{updateDate},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE game_bets SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

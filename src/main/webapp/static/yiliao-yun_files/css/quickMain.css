@@ -1,0 +1,192 @@
+body {
+	font-family: "Î¢ÈíÑÅºÚ"
+}
+td,th,ul,ul li {
+	padding: 0;
+	margin: 0
+}
+*{
+	padding: 0;
+	margin: 0;
+}
+blockquote, body, button, code, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, html, input, legend, li, ol, p, pre, span, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", STHeiti, Heiti, sans-serif;
+    font-size: 14px;
+}
+.medical-DoctorInfo {
+    background-color: #f2f2f2;
+    box-shadow: 0 2px 5px #E0DDDD;
+    float: right;
+    height: 50px;
+    line-height: 50px;
+}
+.titlemargin {
+    margin-right: 20px;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.mk-select-div {
+    width: 100px;
+}
+.mk-select-div{
+    position: relative;
+    display: inline-block;
+}
+.titlemargin>input {
+    width: 134px;
+    background: #fff;
+    height: 28px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    padding-left: 3px;
+    color: #333;
+    border: 1px solid #ddd;
+}
+.mk-select-div>select {
+    width: 100%;
+    cursor: pointer;
+    background: #fff;
+    height: 28px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    padding-left: 3px;
+    color: #333;
+    border: 1px solid #ddd;
+}
+.mk-select-div:after {
+    content: "";
+    position: absolute;
+    top: 11px;
+    right: 10px;
+    width: 0;
+    height: 1.5px;
+    border: 5px solid transparent;
+    border-top: 7px solid #595b5a;
+    pointer-events: none;
+    cursor: pointer;
+}
+.mk-select-div option {
+    border: none;
+}
+.calendar_wrap {
+    height: 28px;
+}
+.medical-DoctorInfo .calendar_wrap input, .registereseach_sj input {
+    width: 115px;
+}
+.calendar_wrap input {
+    width: 46%;
+    text-indent: 4px;
+    height: 28px;
+}
+.mkdateicon {
+    border: 1px solid #dadada;
+    background-position: 91% 43%;
+}
+.mkdateicon {
+    background-image: url(../img/rili.png);
+    background-repeat: no-repeat;
+}
+.mk-green-btn {
+    min-width: 68px;
+    background-color: #45aeea;
+}
+.mk-green-btn{
+    border-radius: 3px;
+    text-align: center;
+    color: #fff;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.price{
+	font-size: 26px;
+	font-weight: bold;
+	color: #fc0202;
+}
+.table-list-box{
+	width: 88%;
+	height: 100%;
+	padding: 50px 80px;
+}
+.table-list-box table{
+	width: 100%;
+	height: 100%;
+}
+.table-main{
+	border-color:#ddd;
+}
+thead tr th{
+	height: 32px;
+	background: #f4f4f4;
+}
+tbody tr td{
+	height: 32px;
+	text-align: center;
+}
+thead tr th:nth-child(1){
+	width: 230px;
+}
+thead tr th:nth-child(2){
+	width: 130px;
+}
+thead tr th:nth-child(3){
+	width: 130px;
+}
+thead tr th:nth-child(4){
+	width: 250px;
+}
+
+
+.pull-right {
+    margin-top: 25px;
+}
+.pull-right {
+    text-align: center;
+}
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    border-radius: 4px;
+}
+.pagination>li {
+    display: inline;
+}
+.pagination li {
+    cursor: pointer;
+}
+.pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover {
+    border-color: #ddd;
+    background-color: #fff;
+    color: #777;
+    cursor: not-allowed;
+}
+.pagination>.active>a, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: #45aeea;
+    color: #fff;
+}
+.pagination>li>a, .pagination>li>span {
+    position: relative;
+    float: left;
+    padding: 6px 10pt;
+    background-color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    line-height: 1.42857;
+}
+tbody tr:hover {
+	background-color: #DADADA
+}
+
+

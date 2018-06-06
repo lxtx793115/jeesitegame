@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.thinkgem.jeesite.modules.frontdeskscrollset.dao.FrontDeskScrollPictureSetDao">
+    
+	<sql id="frontDeskScrollPictureSetColumns">
+		a.id AS "id",
+		a.picture_address AS "pictureAddress",
+		a.picturenumber AS "picturenumber"
+	</sql>
+	
+	<sql id="frontDeskScrollPictureSetJoins">
+	</sql>
+    
+	<select id="get" resultType="FrontDeskScrollPictureSet">
+		SELECT 
+			<include refid="frontDeskScrollPictureSetColumns"/>
+		FROM front_desk_scroll_picture_set a
+		<include refid="frontDeskScrollPictureSetJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="FrontDeskScrollPictureSet">
+		SELECT 
+			<include refid="frontDeskScrollPictureSetColumns"/>
+		FROM front_desk_scroll_picture_set a
+		<include refid="frontDeskScrollPictureSetJoins"/>
+		<where>
+			<if test="picturenumber != null and picturenumber != ''">
+				AND a.picturenumber = #{picturenumber}
+			</if>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="pictureAddress != null and pictureAddress != ''">
+				AND a.picture_address LIKE 
+					<if test="dbName == 'oracle'">'%'||#{pictureAddress}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{pictureAddress}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{pictureAddress},'%')</if>
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="FrontDeskScrollPictureSet">
+		SELECT 
+			<include refid="frontDeskScrollPictureSetColumns"/>
+		FROM front_desk_scroll_picture_set a
+		<include refid="frontDeskScrollPictureSetJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO front_desk_scroll_picture_set(
+			id,
+			picture_address,
+			picturenumber
+		) VALUES (
+			#{id},
+			#{pictureAddress},
+			#{picturenumber}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE front_desk_scroll_picture_set SET 	
+			picture_address = #{pictureAddress},
+			picturenumber = #{picturenumber}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM front_desk_scroll_picture_set
+		WHERE id = #{id}
+	</update>
+	
+</mapper>
